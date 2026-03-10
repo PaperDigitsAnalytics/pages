@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 
-const CONTENT_MACHINE_MANIFEST = path.join(__dirname, 'content-machine-manifest.json');
 
 const hardcodedImageMap = {
   'bigquery-koppelen-aan-ga4':                                        { img: 'businessman-tablet-financial-data-charts.jpg',   readCount: 412, ts: 1741518000000, id: 412847301 },
@@ -146,26 +145,36 @@ const hardcodedRelatedMap = {
   ],
 };
 
-function loadContentMachineManifest() {
-  if (!fs.existsSync(CONTENT_MACHINE_MANIFEST)) {
-    return { imageMap: {}, relatedMap: {} };
-  }
-
+function loadTopicsData() {
+  const topicsPath = path.join(__dirname, 'content-topics.json');
+  if (!fs.existsSync(topicsPath)) return {};
   try {
-    const manifest = JSON.parse(fs.readFileSync(CONTENT_MACHINE_MANIFEST, 'utf8'));
-    return {
-      imageMap: manifest.imageMap || {},
-      relatedMap: manifest.relatedMap || {},
-    };
-  } catch (error) {
-    console.warn(`⚠️  Could not read content-machine manifest: ${error.message}`);
-    return { imageMap: {}, relatedMap: {} };
+    return JSON.parse(fs.readFileSync(topicsPath, 'utf8'));
+  } catch (e) {
+    console.warn(`⚠️  Kon content-topics.json niet lezen: ${e.message}`);
+    return [];
   }
 }
 
-const contentMachineManifest = loadContentMachineManifest();
-const imageMap = { ...hardcodedImageMap, ...contentMachineManifest.imageMap };
-const relatedMap = { ...hardcodedRelatedMap, ...contentMachineManifest.relatedMap };
+const topics = loadTopicsData();
+const topicsMap = Object.fromEntries(topics.map(t => [t.slug, t]));
+
+const imageMap = { ...hardcodedImageMap };
+const relatedMap = { ...hardcodedRelatedMap };
+
+for (const topic of topics) {
+  if (topic.img) {
+    imageMap[topic.slug] = {
+      img: topic.img,
+      readCount: topic.readCount || 0,
+      ts: topic.ts,
+      id: topic.id,
+    };
+  }
+  if (topic.related) {
+    relatedMap[topic.slug] = topic.related;
+  }
+}
 
 function parseFrontmatter(content) {
   const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
@@ -260,13 +269,6 @@ function buildHtml(fm, bodyHtml, slug, uploadBase, related) {
 
     <link rel="stylesheet" href="../styles.css">
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11476910514"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-11476910514');
-    </script>
 
     <script type="application/ld+json">
     {
@@ -298,11 +300,6 @@ function buildHtml(fm, bodyHtml, slug, uploadBase, related) {
     <!-- FAQ Schema -->
     <script type="application/ld+json">
     {{faq_structured_data}}
-    </script>
-    <script>
-    window.GADS_SEND_TO = 'AW-11476910514/8heqCIDBwKAbELKDz-Aq';
-    window.GADS_SEND_TO_VIEW = 'AW-11476910514/-6THCNK6waAbELKDz-Aq';
-    window.GADS_SEND_TO_CTA = 'AW-11476910514/zc8tCKbG8IUcELKDz-Aq';
     </script>
 </head>
 <body>
@@ -437,14 +434,14 @@ ${REVIEWS_HTML}
     </script>
     <script>
         (function(){
-            function fire(){ try { if(window.dataLayer) window.dataLayer.push({event:'whatsapp_click'}); if(typeof window.gtag==='function'&&window.GADS_SEND_TO) window.gtag('event','conversion',{send_to:window.GADS_SEND_TO}); if(typeof window.gtag==='function'&&window.GADS_SEND_TO_CTA) window.gtag('event','conversion',{send_to:window.GADS_SEND_TO_CTA}); } catch(e){} }
+            function fire(){ try { if(window.dataLayer) window.dataLayer.push({event:'whatsapp_click'}); } catch(e){} }
             document.addEventListener('click',function(e){ var b=e.target&&e.target.closest?e.target.closest('a.whatsapp-button'):null; if(!b)return; fire(); },true);
         })();
     </script>
     <script>
         (function(){
             var fired=false;
-            function fireView(){ if(fired)return; fired=true; try{ if(window.dataLayer) window.dataLayer.push({event:'whatsapp_view'}); if(typeof window.gtag==='function'&&window.GADS_SEND_TO_VIEW) window.gtag('event','conversion',{send_to:window.GADS_SEND_TO_VIEW}); }catch(e){} }
+            function fireView(){ if(fired)return; fired=true; try{ if(window.dataLayer) window.dataLayer.push({event:'whatsapp_view'}); }catch(e){} }
             function observe(){ var b=document.querySelector('a.whatsapp-button'); if(!b)return; if(!('IntersectionObserver' in window)){fireView();return;} var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting&&e.intersectionRatio>0){fireView();io.disconnect();}});},{root:null,threshold:[0,0.01]}); io.observe(b); }
             if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',observe); else observe();
         })();
@@ -486,7 +483,7 @@ ${REVIEWS_HTML}
         });
         document.getElementById('pd-sticky-bar__btn').addEventListener('click',function(){
             try{if(window.dataLayer)window.dataLayer.push({event:'sticky_cta_click'});}catch(e){}
-            try{if(typeof window.gtag==='function'&&window.GADS_SEND_TO_CTA)window.gtag('event','conversion',{send_to:window.GADS_SEND_TO_CTA});}catch(e){}
+
         });
     })();
     </script>
@@ -496,7 +493,7 @@ ${REVIEWS_HTML}
             var link = e.target && e.target.closest ? e.target.closest('a.cta-link') : null;
             if (!link) return;
             try { if(window.dataLayer) window.dataLayer.push({event:'post_cta_click'}); } catch(ex){}
-            try { if(typeof window.gtag==='function'&&window.GADS_SEND_TO_CTA) window.gtag('event','conversion',{send_to:window.GADS_SEND_TO_CTA}); } catch(ex){}
+
         }, true);
     })();
     </script>
@@ -524,6 +521,14 @@ const VARIANTS = [
     const raw = fs.readFileSync(path.join('copywriter-artikelen', file), 'utf8');
     const { fm, body } = parseFrontmatter(raw);
     const slug = fm.slug;
+
+    // Gate: content-machine articles must be approved
+    const topicEntry = topicsMap[slug];
+    if (topicEntry && topicEntry.status !== 'approved' && topicEntry.status !== 'published') {
+      console.warn(`⚠️  ${slug}: status is '${topicEntry.status}' — alleen 'approved' artikelen worden gepubliceerd.`);
+      continue;
+    }
+
     const info = imageMap[slug];
     if (!info) { console.warn(`⚠️  No image mapped for: ${slug}`); continue; }
 
@@ -582,8 +587,16 @@ const VARIANTS = [
     if (existing >= 0) metadata[existing] = entry;
     else metadata.push(entry);
     console.log(`✅ Metadata updated: ${slug}`);
+
+    // Mark as published in content-topics.json
+    if (topicEntry && topicEntry.status === 'approved') {
+      topicEntry.status = 'published';
+      const updatedTopics = topics.map(t => t.slug === slug ? { ...t, status: 'published' } : t);
+      fs.writeFileSync(path.join(__dirname, 'content-topics.json'), JSON.stringify(updatedTopics, null, 2) + '\n', 'utf8');
+    }
   }
 
   fs.writeFileSync('blog-metadata.json', JSON.stringify(metadata, null, 2));
   console.log('\n🎉 All articles processed!');
 })().catch(console.error);
+

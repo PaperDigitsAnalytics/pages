@@ -27,14 +27,55 @@ sync-ftp.js                 ← uploadt static-export/ naar de server via FTP
 ## De workflow in één oogopslag
 
 ```
-copywriter-artikelen/*.md
+content-topics.json          ← single source of truth voor topic-config, status én afbeelding/related
+copywriter-artikelen/*.md    ← markdown-scaffolds + inhoud door copywriter
         ↓
-node _publish-articles.js     ← genereert HTML + afbeeldingsvarianten + metadata
+node scripts/content-machine.js scaffold   ← genereert .md scaffold + schrijft img/ts/id/related terug
+        ↓
+[copywriter schrijft body]
+        ↓
+node scripts/content-machine.js review <slug>   ← draft → review
+node scripts/content-machine.js approve <slug>  ← review → approved (blokkeert bij issues)
+        ↓
+node _publish-articles.js     ← verwerkt alleen 'approved' artikelen → HTML + afbeeldingen + metadata
+                                 zet status automatisch op 'published'
         ↓
 npm run deploy                ← export-static.js + sync-ftp.js
         ↓
 live op pages.paperdigits.nl + feed.xml → Channable → Google Ads campagnes
 ```
+
+### Status flow
+
+`idea` → `scaffolded` → `draft` → `review` → `approved` → `published` → `live`
+
+**Commands:**
+```bash
+npm run content:scaffold         # scaffold nieuwe topics
+npm run content:status           # overzicht van alle topics
+npm run content:validate         # valideer alle markdown-bestanden
+npm run content:review -- <slug> # stuur draft naar review
+npm run content:approve -- <slug># keur goed (blokkeert bij placeholder/lengte issues)
+npm run content:reject -- <slug> # stuur terug naar draft
+
+node _publish-articles.js        # publiceer goedgekeurde artikelen
+```
+
+**Vereiste configuratie per nieuwe slug in `content-topics.json`:**
+
+Naast slug/title/category/keywords/status heeft elk topic ook:
+```json
+{
+  "slug": "mijn-artikel",
+  "img": "naam-van-foto.jpg",
+  "readCount": 0,
+  "ts": 1773140400000,
+  "id": 360412187,
+  "related": [["gerelateerde-slug", "Gerelateerde titel"]]
+}
+```
+
+`scaffold` vult `img`, `ts`, `id` en `related` automatisch in als ze ontbreken.
 
 ---
 
@@ -48,49 +89,11 @@ Dit script verwerkt markdown-bestanden uit `copywriter-artikelen/` en doet alles
 3. Schrijft het HTML-bestand naar `content/`
 4. Update `blog-metadata.json`
 
-**Vereiste configuratie per nieuwe slug:**
-
-Het script heeft twee hardcoded maps die je moet uitbreiden voor nieuwe artikelen:
-
-```js
-const imageMap = {
-  'slug-van-artikel': {
-    img: 'naam-van-foto.jpg',   // bestand uit images-pages/
-    readCount: 0,
-    ts: 1773140400000,          // Unix timestamp in ms (new Date(isoTimestamp).getTime())
-    id: 360412187               // willekeurig uniek getal (6-9 cijfers)
-  },
-};
-
-const relatedMap = {
-  'slug-van-artikel': [
-    ['gerelateerde-slug', 'Gerelateerde titel'],
-    // max 5 items
-  ],
-};
-```
-
-**Beschikbare foto's in `images-pages/`:**
-```
-analytics/data:        saas-business-dashboard-metrics.jpg
-                       businessman-tablet-financial-data-charts.jpg
-                       business-finance-chart-fountain-pen.jpg
-                       roadmap-planning-sticky-notes.jpg
-Google Ads/Shopping:   google-logo-iphone-desk.jpg
-                       google-search-analytics-mobile.jpg
-                       google-shopping-ecommerce-icon-3d.jpg
-                       google-search-homepage-smartphone.jpg
-Social/generiek:       social-media-management-laptop-phone.jpg
-                       team-brainstorming-whiteboard-collaboration.jpg
-                       business-meeting-collaboration-laptops.jpg
-                       ... (zie volledige lijst met: ls images-pages/)
-```
-
 **Script draaien:**
 ```bash
 node _publish-articles.js
 ```
-Slugs die niet in `imageMap` staan worden overgeslagen met een `⚠️`-waarschuwing.
+Verwerkt alleen artikelen met status `approved` in `content-topics.json`. Gebruik `npm run content:approve -- <slug>` om een artikel goed te keuren.
 
 ---
 

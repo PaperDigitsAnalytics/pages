@@ -8,6 +8,105 @@
       "google ads conversies",
       "first-party data"
     ],
-    "status": "scaffolded"
+    "status": "scaffolded",
+    "img": "google-logo-iphone-desk.jpg",
+    "readCount": 0,
+    "ts": 1773156367123,
+    "id": 784355639,
+    "related": [
+      ["enhanced-conversions-via-gtm", "Enhanced Conversions via GTM"],
+      ["google-ads-tracking-via-gtm", "Google Ads tracking via GTM"],
+      ["google-tag-manager-vs-gtagjs", "Google Tag Manager vs. gtag.js"],
+      ["gtm-voor-shopify", "GTM voor Shopify"],
+      ["cross-domain-tracking", "Cross-domain tracking"]
+    ]
+  },
+  {
+    "slug": "ga4-custom-channel-groups",
+    "title": "GA4 custom channel groups instellen",
+    "category": "Analytics",
+    "keywords": [
+      "ga4 custom channel groups",
+      "channel groups ga4",
+      "kanaalrapportage"
+    ],
+    "status": "scaffolded",
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "readCount": 0,
+    "ts": 1773156782151,
+    "id": 925531057,
+    "related": [
+      ["attributie-in-ga4-wat-kun-je-nog-vertrouwen", "Attributie in GA4: wat kun je nog vertrouwen?"],
+      ["bigquery-contribution-analysis-voor-campagneveranderingen", "BigQuery contribution analysis voor campagneveranderingen"],
+      ["bigquery-forecasting-voor-marketingplanning", "BigQuery forecasting voor marketingplanning"],
+      ["bigquery-koppelen-aan-ga4", "BigQuery koppelen aan GA4"],
+      ["bigquery-ml-voor-customer-segmentatie", "BigQuery ML voor customer segmentatie"]
+    ]
+  },
+  {
+    "slug": "consent-mode-v2-via-gtm",
+    "title": "Consent Mode v2 via GTM instellen",
+    "category": "Google Tag Manager",
+    "keywords": [
+      "consent mode v2",
+      "gtm consent mode",
+      "google consent mode"
+    ],
+    "status": "scaffolded",
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "readCount": 0,
+    "ts": 1773156782158,
+    "id": 501740961,
+    "related": [
+      ["google-consent-mode-v2-verplicht-n-urgent", "Google Consent Mode v2: verplicht én urgent"],
+      ["cross-domain-tracking", "Cross-domain tracking"],
+      ["e-commerce-tracking-via-gtm", "E-commerce tracking via GTM"],
+      ["enhanced-conversions-via-gtm", "Enhanced Conversions via GTM"],
+      ["google-ads-tracking-via-gtm", "Google Ads tracking via GTM"]
+    ]
+  },
+  {
+    "slug": "ga4-utm-structuur-opzetten",
+    "title": "GA4 UTM-structuur opzetten",
+    "category": "Analytics",
+    "keywords": [
+      "utm structuur",
+      "ga4 utm tagging",
+      "campagne tagging"
+    ],
+    "status": "scaffolded",
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "readCount": 0,
+    "ts": 1773156782163,
+    "id": 707154724,
+    "related": [
+      ["attributie-in-ga4-wat-kun-je-nog-vertrouwen", "Attributie in GA4: wat kun je nog vertrouwen?"],
+      ["bigquery-contribution-analysis-voor-campagneveranderingen", "BigQuery contribution analysis voor campagneveranderingen"],
+      ["bigquery-forecasting-voor-marketingplanning", "BigQuery forecasting voor marketingplanning"],
+      ["bigquery-koppelen-aan-ga4", "BigQuery koppelen aan GA4"],
+      ["bigquery-ml-voor-customer-segmentatie", "BigQuery ML voor customer segmentatie"]
+    ]
+  },
+  {
+    "slug": "meta-deduplicatie-via-gtm-en-capi",
+    "title": "Meta deduplicatie via GTM en CAPI",
+    "category": "Google Tag Manager",
+    "keywords": [
+      "meta deduplicatie",
+      "conversion api deduplication",
+      "meta capi gtm"
+    ],
+    "status": "scaffolded",
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "readCount": 0,
+    "ts": 1773156782165,
+    "id": 853189078,
+    "related": [
+      ["cross-domain-tracking", "Cross-domain tracking"],
+      ["e-commerce-tracking-via-gtm", "E-commerce tracking via GTM"],
+      ["enhanced-conversions-via-gtm", "Enhanced Conversions via GTM"],
+      ["google-ads-tracking-via-gtm", "Google Ads tracking via GTM"],
+      ["google-tag-manager-installeren", "Google Tag Manager installeren"]
+    ]
   }
 ]
