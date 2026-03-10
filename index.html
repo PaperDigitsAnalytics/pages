@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data-gedreven Marketing Inzichten | PaperDigits</title>
+    <meta name="description" content="Geen marketing fluff, wel concrete resultaten. Data-gedreven inzichten voor SEO en digital marketing die écht werken. Van kleine bedrijven tot enterprise.">
+    <link rel="canonical" href="https://paperdigits.nl/blog/">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Blog Overzicht | Data-gedreven Marketing Inzichten | PaperDigits">
+    <meta property="og:description" content="Geen marketing fluff, wel concrete resultaten. Data-gedreven inzichten voor SEO en digital marketing die écht werken. Van kleine bedrijven tot enterprise.">
+    <meta property="og:image" content="https://paperdigits.nl/wp-content/uploads/2025/01/blog-overview-og.jpg">
+    <meta property="og:url" content="https://paperdigits.nl/blog/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PaperDigits">
+    
+    <link rel="stylesheet" href="styles.css?v=20250910-1346">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11476910514"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date());
+      gtag('config', 'AW-11476910514');
+    </script>
+    
+    <!-- Structured Data (Schema Markup) -->
+    <script type="application/ld+json" id="schema-blog">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "PaperDigits Blog",
+      "description": "Digital Marketing inzichten voor ambitieuze bedrijven en marketeers",
+      "url": "https://paperdigits.nl/blog/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "PaperDigits",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://paperdigits.nl/wp-content/uploads/2024/01/paperdigits-logo.png"
+        }
+      },
+      "blogPost": []
+    }
+    </script>
+    <script type="application/ld+json" id="schema-org">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "PaperDigits",
+      "url": "https://paperdigits.nl/",
+      "logo": "https://paperdigits.nl/wp-content/uploads/2024/01/paperdigits-logo.png"
+    }
+    </script>
+    <script type="application/ld+json" id="schema-website">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "PaperDigits",
+      "url": "https://paperdigits.nl/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://paperdigits.nl/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script src="posts.js?v=20250910-1346"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <a class="header__logo" href="https://paperdigits.nl/">
+                <img src="images/logo/PaperDigits_logo.png" alt="PaperDigits - SEO en Digital Marketing Agency" class="logo-image">
+            </a>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span class="hamburger__line"></span>
+                <span class="hamburger__line"></span>
+                <span class="hamburger__line"></span>
+            </button>
+            <nav class="header__nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="https://paperdigits.nl/services/" class="nav__link">Services</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="https://paperdigits.nl/technologie/" class="nav__link">Technologie</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="https://paperdigits.nl/stories/" class="nav__link">Stories</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="https://paperdigits.nl/vacatures/" class="nav__link">Vacatures</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="https://paperdigits.nl/contact/" class="nav__link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="blog-overview">
+            <div class="blog-overview__container">
+                <header class="blog-overview__header">
+                    <h1 class="blog-overview__title">Blog Overzicht</h1>
+                    <p class="blog-overview__subtitle">
+                        Data-gedreven inzichten voor digital marketing.
+                    </p>
+                </header>
+
+                <!-- Filter Section -->
+                <div class="blog-filters">
+                    <div class="filter-group">
+                        <label for="category-filter" class="filter-label">Categorie</label>
+                        <select id="category-filter" class="filter-select">
+                            <option value="all">Alle categorieën</option>
+                            <option value="SEO">SEO</option>
+                            <option value="Content Marketing">Content Marketing</option>
+                            <option value="Digital Marketing">Digital Marketing</option>
+                            <option value="Social Media Marketing">Social Media Marketing</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sort-filter" class="filter-label">Sorteren op</label>
+                        <select id="sort-filter" class="filter-select">
+                            <option value="newest">Nieuwste eerst</option>
+                            <option value="oldest">Oudste eerst</option>
+                            <option value="title">Titel A-Z</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Blog Posts Grid -->
+                <div class="blog-posts-grid" id="blog-posts-grid">
+                    <!-- Blog posts will be dynamically loaded here -->
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__row">
+            <nav class="footer__nav">
+                <ul class="footer__list footer__list--main">
+                    <li class="footer__item footer-heading">
+                        <div class="footer__text-container">
+                            <a class="footer__link" href="https://paperdigits.nl/services/">
+                                <span class="footer__text">Services</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="footer__item footer-heading">
+                        <div class="footer__text-container">
+                            <a class="footer__link" href="https://paperdigits.nl/stories/">
+                                <span class="footer__text">Stories</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="footer__item footer-heading">
+                        <div class="footer__text-container">
+                            <a class="footer__link" href="https://paperdigits.nl/technologie/">
+                                <span class="footer__text">Technologie</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="footer__item footer-heading">
+                        <div class="footer__text-container">
+                            <a class="footer__link" href="https://paperdigits.nl/vacatures/">
+                                <span class="footer__text">Vacatures</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="footer__item footer-heading">
+                        <div class="footer__text-container">
+                            <a class="footer__link" href="https://paperdigits.nl/contact/">
+                                <span class="footer__text">Contact</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                
+                <ul class="footer__list footer__list--sub">
+                    <li class="small-body font-bold">Services</li>
+                    <li class="footer__item small-body">
+                        <div class="footer__text-container">
+                            <a class="footer__link" href="https://paperdigits.nl/service/digital-advertising/">
+                                <span class="footer__text">Advertising</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="footer__item small-body">
+                        <div class="footer__text-container">
+                            <a class="footer__link" href="https://paperdigits.nl/service/marketplaces-consultancy/">
+                                <span class="footer__text">Marketplaces Consultancy</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="footer__item small-body">
+                        <div class="footer__text-container">
+                            <a class="footer__link" href="https://paperdigits.nl/service/aduti-en-strategie/">
+                                <span class="footer__text">Audit & Strategie</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="footer__item small-body">
+                        <div class="footer__text-container">
+                            <a class="footer__link" href="https://paperdigits.nl/service/data/">
+                                <span class="footer__text">Data</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="footer__item small-body">
+                        <div class="footer__text-container">
+                            <a class="footer__link" href="https://paperdigits.nl/service/social-advertising/">
+                                <span class="footer__text">Social Advertising</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                
+                <ul class="footer__list footer__list--sub">
+                    <li class="small-body font-bold">Tech</li>
+                    <li class="footer__item small-body">
+                        <div class="footer__text-container">
+                            <a class="footer__link" href="https://paperdigits.nl/technologie/google-bigquery/">
+                                <span class="footer__text">Google BigQuery</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="footer__item small-body">
+                        <div class="footer__text-container">
+                            <a class="footer__link" href="https://paperdigits.nl/technologie/channable/">
+                                <span class="footer__text">Channable</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="footer__item small-body">
+                        <div class="footer__text-container">
+                            <a class="footer__link" href="https://paperdigits.nl/technologie/google-analytics-4-ga4/">
+                                <span class="footer__text">Google Analytics 4 (GA4)</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="footer__item small-body">
+                        <div class="footer__text-container">
+                            <a class="footer__link" href="https://paperdigits.nl/technologie/server-side-tagging/">
+                                <span class="footer__text">Server Side Tagging</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="footer__item small-body">
+                        <div class="footer__text-container">
+                            <a class="footer__link" href="https://paperdigits.nl/technologie/looker-studio/">
+                                <span class="footer__text">Looker Studio</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="footer__item small-body">
+                        <div class="footer__text-container">
+                            <a class="footer__link" href="https://paperdigits.nl/technologie/cookie-consent-mode-v2/">
+                                <span class="footer__text">Cookie Consent</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="footer__item small-body">
+                        <div class="footer__text-container">
+                            <a class="footer__link" href="https://paperdigits.nl/technologie/google-tag-manager/">
+                                <span class="footer__text">Google Tag Manager</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                
+                <div class="footer__contact">
+                    <p class="small-body font-bold">Contactgegevens</p>
+                    <div class="p small-body">
+                        <p>Noorderstraat 1Q,<br>1823 CS Alkmaar</p>
+                        <p><a href="tel:+31722340777">+31 (0)72 234 0777</a><br>
+                        <a href="mailto:info@paperdigits.nl">info@paperdigits.nl</a></p>
+                    </div>
+                    <div class="socials">
+                        <a href="https://www.linkedin.com/company/paperdigits">
+                            <svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                <g fill-rule="evenodd">
+                                    <path d="M21.3333,24 L2.66667,24 C1.19391,24 0,22.8061 0,21.3333 L0,2.66667 C0,1.19391 1.19391,0 2.66667,0 L21.3333,0 C22.8061,0 24,1.19391 24,2.66667 L24,21.3333 C24,22.8061 22.8061,24 21.3333,24 Z M17.1052,20.6667 L20.6667,20.6667 L20.6667,13.3504 C20.6667,10.2548 18.9119,8.75807 16.4609,8.75807 C14.0087,8.75807 12.9767,10.6676 12.9767,10.6676 L12.9767,9.11111 L9.54444,9.11111 L9.54444,20.6667 L12.9767,20.6667 L12.9767,14.6007 C12.9767,12.9754 13.7249,12.0082 15.1569,12.0082 C16.4733,12.0082 17.1052,12.9376 17.1052,14.6007 L17.1052,20.6667 Z M3.33333,5.46567 C3.33333,6.64322 4.28069,7.598 5.44978,7.598 C6.61888,7.598 7.56567,6.64322 7.56567,5.46567 C7.56567,4.28812 6.61888,3.33333 5.44978,3.33333 C4.28069,3.33333 3.33333,4.28812 3.33333,5.46567 Z M7.25647,20.6667 L3.67752,20.6667 L3.67752,9.11111 L7.25647,9.11111 L7.25647,20.6667 Z" id="Shape"></path>
+                                </g>
+                            </svg>
+                            <span class="sr-only">linkedin</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer__contact-button">
+                    <a href="https://paperdigits.nl/contact/" target="" rel="noopener" class="button medium-body button--anchor background--dark color--light has-dot">
+                        <span class="button__text">Contact opnemen</span>
+                        <span class="button-dot color--psea"></span>
+                    </a>
+                </div>
+            </nav>
+            
+            <div class="footer__bottom">
+                <div class="footer__bottom-left">
+                    <div class="footer__awards">
+                        <p class="small-body font-bold">Awards:</p>
+                        <a href="https://dutchsearchawards.nl/winnaars/">
+                            <img width="300" height="105" src="https://paperdigits.nl/wp-content/uploads/2025/04/3.png" class="attachment-medium size-medium" alt="" decoding="async" loading="lazy">
+                        </a>
+                        <a href="https://www.noordhollandsdagblad.nl/cnt/dmf20231127_59218977?utm_source=google&utm_medium=organic">
+                            <img width="300" height="105" src="https://paperdigits.nl/wp-content/uploads/2025/04/8.png" class="attachment-medium size-medium" alt="" decoding="async" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="footer__legal-nav">
+                        <ul class="footer__list footer__list--legal">
+                            <li class="footer__item xsmall-body color--psea">
+                                <div class="footer__text-container">
+                                    <a class="footer__link" href="https://paperdigits.nl/privacybeleid/">
+                                        <span class="footer__text">Privacybeleid</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="footer__item xsmall-body color--psea">
+                                <div class="footer__text-container">
+                                    <a class="footer__link" href="https://paperdigits.nl/cookiebeleid/">
+                                        <span class="footer__text">Cookiebeleid</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                        <p class="footer__copyright xsmall-body">
+                            Copyright ©2025 PaperDigits
+                        </p>
+                    </div>
+                </div>
+                <div class="footer__bottom-right background--plightgrey">
+                    <img width="299" height="286" src="https://paperdigits.nl/wp-content/uploads/2024/02/PremierPartner-RGB-1.png" class="attachment-medium size-medium" alt="" decoding="async" loading="lazy">
+                    <img width="300" height="172" src="https://paperdigits.nl/wp-content/uploads/2024/02/MBP-Badge-Light-backgrounds@4x-300x172.png" class="attachment-medium size-medium" alt="" decoding="async" loading="lazy">
+                    <img width="300" height="135" src="https://paperdigits.nl/wp-content/uploads/2024/07/PaperDigits_Leadinfo_parnter-300x135.png" class="attachment-medium size-medium" alt="" decoding="async" loading="lazy">
+                    <img width="300" height="178" src="https://paperdigits.nl/wp-content/uploads/2024/03/PaperDigits_cookiebot_partner_cookie_consent_mode_v2-300x178.png" class="attachment-medium size-medium" alt="" decoding="async" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Blog posts data - loaded dynamically from the backend API
+        let blogPosts = [];
+        
+        // Author mapping for avatars
+        const authorMapping = {
+            'Wouter Naber': 'images/writers/Wouter Naber.jpg',
+            'Lasse Botman': 'images/writers/Lasse Botman.png'
+        };
+        
+        function getAuthorAvatar(authorName) {
+            return authorMapping[authorName] || authorMapping['Wouter Naber'];
+        }
+
+        // Hamburger menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('.header__nav');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('hamburger--active');
+            nav.classList.toggle('header__nav--active');
+        });
+        
+        // Close menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav__link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('hamburger--active');
+                nav.classList.remove('header__nav--active');
+            });
+        });
+
+        // Skeleton loader cards
+        function createSkeletonGrid(count = 6) {
+            const card = `
+                <div class="skeleton-card">
+                    <div class="skeleton-card__image skeleton-shimmer"></div>
+                    <div class="skeleton-card__content">
+                        <div class="skeleton-line skeleton-line--category skeleton-shimmer"></div>
+                        <div class="skeleton-line skeleton-line--title skeleton-shimmer"></div>
+                        <div class="skeleton-line skeleton-line--title-s skeleton-shimmer"></div>
+                        <div class="skeleton-line skeleton-shimmer"></div>
+                        <div class="skeleton-line skeleton-line--text-s skeleton-shimmer"></div>
+                        <div class="skeleton-card__footer">
+                            <div class="skeleton-avatar skeleton-shimmer"></div>
+                            <div class="skeleton-author skeleton-shimmer"></div>
+                        </div>
+                    </div>
+                </div>`;
+            return Array.from({ length: count }, () => card).join('');
+        }
+
+        // Function to truncate text to a specific number of words
+        function truncateText(text, maxWords = 20) {
+            if (!text) return '';
+            
+            const words = text.split(' ');
+            if (words.length <= maxWords) {
+                return text;
+            }
+            
+            return words.slice(0, maxWords).join(' ') + '...';
+        }
+
+        // Function to create blog post card HTML
+        function createBlogPostCard(post) {
+            const truncatedDescription = truncateText(post.description, 20);
+            const isTruncated = post.description && post.description.split(' ').length > 20;
+            
+            const imgSrc = post.heroImageThumb || post.heroImage;
+            const imgSrcset = [
+                post.heroImageThumb ? `${post.heroImageThumb} 600w` : null,
+                post.heroImageDesktop ? `${post.heroImageDesktop} 1200w` : null
+            ].filter(Boolean).join(', ');
+
+            return `
+                <article class="blog-post-card" data-category="${post.category}" data-date="${post.date}">
+                    <div class="blog-post-card__image">
+                        <img src="${imgSrc}" ${imgSrcset ? `srcset="${imgSrcset}" sizes="(max-width: 768px) 600px, 1200px"` : ''} alt="${post.heroAlt}" class="card-image" loading="lazy" decoding="async" width="600" height="300">
+                    </div>
+                    <div class="blog-post-card__content">
+                        <div class="blog-post-card__meta">
+                            <span class="post-category">${post.category}</span>
+                            <span class="post-date">${formatDate(post.date)}</span>
+                        </div>
+                        <h2 class="blog-post-card__title">
+                            <a href="content/${post.id}" class="card-title-link">
+                                ${post.title}
+                            </a>
+                        </h2>
+                        <div class="blog-post-card__excerpt">
+                            <p class="excerpt-text">${truncatedDescription}</p>
+                            ${isTruncated ? `<button class="read-more-btn" onclick="toggleExcerpt(this)">Lees meer</button>` : ''}
+                        </div>
+                        <div class="blog-post-card__footer">
+                            <div class="author-info">
+                                <img src="${post.authorAvatar}" alt="${post.author}" class="author-avatar">
+                                <span class="author-name">${post.author}</span>
+                            </div>
+                            <div class="post-stats">
+                                <span class="read-count">${post.readCount}</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        // Function to toggle excerpt between truncated and full text
+        function toggleExcerpt(button) {
+            const excerptDiv = button.closest('.blog-post-card__excerpt');
+            const excerptText = excerptDiv.querySelector('.excerpt-text');
+            const postCard = excerptDiv.closest('.blog-post-card');
+            const postId = postCard.querySelector('.card-title-link').href.split('/').pop();
+            
+            // Find the original post data to get full description
+            const originalPost = blogPosts.find(post => post.id === postId);
+            
+            if (originalPost) {
+                const isExpanded = button.textContent === 'Lees minder';
+                
+                if (isExpanded) {
+                    excerptText.textContent = truncateText(originalPost.description, 20);
+                    button.textContent = 'Lees meer';
+                } else {
+                    excerptText.textContent = originalPost.description;
+                    button.textContent = 'Lees minder';
+                }
+            }
+        }
+
+        // Function to format date from YYYY-MM-DD to Dutch format
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const months = [
+                'januari', 'februari', 'maart', 'april', 'mei', 'juni',
+                'juli', 'augustus', 'september', 'oktober', 'november', 'december'
+            ];
+            return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+        }
+
+        // Function to load blog posts from the API
+        async function loadBlogPostsFromAPI() {
+            try {
+                console.log('Fetching blog posts from API...');
+                const response = await fetch('/api/blog-posts');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const savedFiles = await response.json();
+                console.log('API response:', savedFiles);
+                
+                // Transform the API data to match our expected format
+                blogPosts = savedFiles.map(file => {
+                    const metadata = file.metadata || {};
+                    const slug = file.filename.replace('.html', '');
+                    
+                    // Fix hero image path - remove leading slash if present
+                    let heroImage = metadata.heroImage || 'images/Hetportretbureau_LR__T1A1116.jpg';
+                    if (heroImage.startsWith('/')) {
+                        heroImage = heroImage.substring(1);
+                    }
+                    
+                    return {
+                        id: slug,
+                        title: metadata.title || 'Untitled',
+                        description: metadata.description || '',
+                        category: metadata.category || 'Uncategorized',
+                        author: metadata.author || 'Wouter Naber',
+                        date: metadata.date || new Date().toISOString().split('T')[0],
+                        readCount: metadata.readCount || 0,
+                        authorAvatar: getAuthorAvatar(metadata.author || 'Wouter Naber'),
+                        heroImage: heroImage,
+                        heroAlt: metadata.heroImageAlt || metadata.title || 'Blog post image',
+                        slug: slug
+                    };
+                });
+                
+                console.log(`✅ Loaded ${blogPosts.length} blog posts from API:`, blogPosts);
+                return blogPosts;
+                
+            } catch (error) {
+                console.error('❌ Error loading blog posts from API:', error);
+                // Fallback to empty array if API fails
+                blogPosts = [];
+                return [];
+            }
+        }
+
+        // Function to load and display blog posts
+        async function loadBlogPosts() {
+            const blogGrid = document.getElementById('blog-posts-grid');
+            
+            // Show skeleton loader
+            blogGrid.innerHTML = createSkeletonGrid();
+            
+            try {
+                // Load posts from API
+                await loadBlogPostsFromAPI();
+                
+                // Clear existing content
+                blogGrid.innerHTML = '';
+                
+                if (blogPosts.length === 0) {
+                    blogGrid.innerHTML = `
+                        <div class="empty-state">
+                            <h3>Geen blog posts gevonden</h3>
+                            <p>Er zijn nog geen blog posts beschikbaar. Maak je eerste blog post via het CMS!</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Sort posts by date (newest first)
+                const sortedPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                console.log('Displaying sorted posts:', sortedPosts);
+                
+                // Create and append blog post cards
+                sortedPosts.forEach(post => {
+                    const postCard = createBlogPostCard(post);
+                    blogGrid.insertAdjacentHTML('beforeend', postCard);
+                });
+                
+                console.log(`✅ Successfully displayed ${sortedPosts.length} blog posts`);
+                
+            } catch (error) {
+                console.error('❌ Error in loadBlogPosts:', error);
+                blogGrid.innerHTML = `
+                    <div class="error-state">
+                        <h3>Fout bij laden van blog posts</h3>
+                        <p>Er is een fout opgetreden bij het laden van de blog posts. Controleer of de server draait.</p>
+                        <button onclick="loadBlogPosts()" class="retry-button">Opnieuw proberen</button>
+                    </div>
+                `;
+            }
+        }
+
+        // Blog filtering and sorting functionality
+        const categoryFilter = document.getElementById('category-filter');
+        const sortFilter = document.getElementById('sort-filter');
+        const blogGrid = document.getElementById('blog-posts-grid');
+
+        function filterAndSortPosts() {
+            const selectedCategory = categoryFilter.value;
+            const selectedSort = sortFilter.value;
+            const posts = Array.from(blogGrid.children);
+
+            // Filter posts
+            const filteredPosts = posts.filter(post => {
+                if (selectedCategory === 'all') return true;
+                return post.dataset.category === selectedCategory;
+            });
+
+            // Sort posts
+            filteredPosts.sort((a, b) => {
+                switch (selectedSort) {
+                    case 'newest':
+                        return new Date(b.dataset.date) - new Date(a.dataset.date);
+                    case 'oldest':
+                        return new Date(a.dataset.date) - new Date(b.dataset.date);
+                    case 'title':
+                        return a.querySelector('.card-title-link').textContent.localeCompare(b.querySelector('.card-title-link').textContent);
+                    default:
+                        return 0;
+                }
+            });
+
+            // Clear grid and re-append sorted posts
+            blogGrid.innerHTML = '';
+            filteredPosts.forEach(post => blogGrid.appendChild(post));
+        }
+
+        // Function to update category filter options based on available posts
+        function updateCategoryFilter() {
+            const categories = [...new Set(blogPosts.map(post => post.category))];
+            const categoryFilter = document.getElementById('category-filter');
+            
+            // Clear existing options except "Alle categorieën"
+            categoryFilter.innerHTML = '<option value="all">Alle categorieën</option>';
+            
+            // Add category options
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                categoryFilter.appendChild(option);
+            });
+        }
+
+        // Function to update structured data
+        function updateStructuredData() {
+            const postsAsBlogPosting = blogPosts.map(post => ({
+                "@type": "BlogPosting",
+                "headline": post.title,
+                "description": post.description,
+                "url": `https://paperdigits.nl/blog/${post.id}/`,
+                "datePublished": post.date,
+                "author": { "@type": "Person", "name": post.author }
+            }));
+
+            const itemList = {
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                "itemListElement": blogPosts.map((post, index) => ({
+                    "@type": "ListItem",
+                    "position": index + 1,
+                    "url": `https://paperdigits.nl/blog/${post.id}/`
+                }))
+            };
+
+            const blogSchemaEl = document.getElementById('schema-blog');
+            if (blogSchemaEl) {
+                const data = JSON.parse(blogSchemaEl.textContent);
+                data.blogPost = postsAsBlogPosting;
+                blogSchemaEl.textContent = JSON.stringify(data, null, 2);
+            }
+
+            // Inject or update ItemList schema
+            let itemListEl = document.getElementById('schema-itemlist');
+            if (!itemListEl) {
+                itemListEl = document.createElement('script');
+                itemListEl.type = 'application/ld+json';
+                itemListEl.id = 'schema-itemlist';
+                document.head.appendChild(itemListEl);
+            }
+            itemListEl.textContent = JSON.stringify(itemList, null, 2);
+        }
+
+        // Override loadBlogPostsFromAPI to use posts.js data first
+        const originalLoadBlogPostsFromAPI = window.loadBlogPostsFromAPI;
+        window.loadBlogPostsFromAPI = async function(){
+            try {
+                if (Array.isArray(window.blogPosts) && window.blogPosts.length) {
+                    blogPosts = window.blogPosts;
+                    return blogPosts;
+                }
+                const res = await fetch('posts.json', { cache: 'no-store' });
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const data = await res.json();
+                blogPosts = Array.isArray(data) ? data : [];
+                return blogPosts;
+            } catch(e){
+                if (typeof originalLoadBlogPostsFromAPI === 'function') {
+                    return originalLoadBlogPostsFromAPI();
+                }
+                console.error('Fallback loader failed', e);
+                blogPosts = [];
+                return [];
+            }
+        };
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', async function() {
+            await loadBlogPosts();
+            updateCategoryFilter();
+            updateStructuredData();
+            
+            // Add event listeners
+            categoryFilter.addEventListener('change', filterAndSortPosts);
+            sortFilter.addEventListener('change', filterAndSortPosts);
+        });
+
+    </script>
+
+</body>
+</html>

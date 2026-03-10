@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(du:*)",
+      "Bash(node:*)",
+      "Bash(npm install:*)",
+      "Bash(curl:*)",
+      "Bash(rm:*)",
+      "Bash(npm run:*)",
+      "Bash(grep:*)",
+      "Bash(ls /c/Users/wouter/Documents/pages-v2/*.js)",
+      "Bash(ls C:/Users/wouter/Documents/pages-v2/copywriter-artikelen/ && echo \"---\" && ls C:/Users/wouter/Documents/pages-v2/content/*.html | xargs -I{} basename {} .html | sort > /tmp/content_slugs.txt && ls C:/Users/wouter/Documents/pages-v2/copywriter-artikelen/*.md | xargs -I{} basename {} .md | sort > /tmp/md_slugs.txt && comm -23 /tmp/md_slugs.txt /tmp/content_slugs.txt)"
+    ]
+  }
+}

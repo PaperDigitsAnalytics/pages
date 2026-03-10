@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog CMS | PaperDigits</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cms-styles.css">
+    <!-- HTML Content Editor -->
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <a class="header__logo" href="blog-overview.html">
+                <img src="images/logo/PaperDigits_logo.png" alt="PaperDigits - SEO en Digital Marketing Agency" class="logo-image">
+            </a>
+            <nav class="header__nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="blog-overview.html" class="nav__link">Blog Overzicht</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">CMS</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="cms-container">
+            <div class="cms-header">
+                <h1>Blog CMS</h1>
+                <p>Maak en beheer je blog posts</p>
+                <div class="cms-nav">
+                    <button id="create-tab" class="tab-btn active">Nieuwe Post</button>
+                    <button id="manage-tab" class="tab-btn">Beheer Posts</button>
+                </div>
+            </div>
+
+            <div class="cms-content">
+                <!-- Create New Post Tab -->
+                <div id="create-content" class="tab-content active">
+                    <form id="blog-form" class="blog-form">
+                    <div class="form-section">
+                        <h2>Blog Post Informatie</h2>
+                        
+                        <div class="form-group">
+                            <label for="post-title">Titel *</label>
+                            <input type="text" id="post-title" name="title" required placeholder="Voer de titel van je blog post in">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="post-description">Beschrijving *</label>
+                            <textarea id="post-description" name="description" required placeholder="Korte beschrijving van je blog post" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="post-ad-description">Advertentie Beschrijving (90 tekens)</label>
+                            <textarea id="post-ad-description" name="adDescription" placeholder="Korte beschrijving voor advertenties (max 90 tekens)" rows="2" maxlength="90"></textarea>
+                            <small class="form-help">
+                                <span id="ad-description-counter">0</span>/90 tekens - Deze beschrijving wordt gebruikt voor advertenties
+                            </small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="post-ad-description-2">Advertentie Beschrijving 2 (90 tekens)</label>
+                            <textarea id="post-ad-description-2" name="adDescription2" placeholder="Tweede beschrijving voor advertenties (max 90 tekens)" rows="2" maxlength="90"></textarea>
+                            <small class="form-help">
+                                <span id="ad-description-2-counter">0</span>/90 tekens - Alternatieve beschrijving voor advertenties
+                            </small>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="post-headline-1">Headline 1 (30 tekens)</label>
+                                <input type="text" id="post-headline-1" name="headline1" placeholder="Eerste headline (max 30 tekens)" maxlength="30">
+                                <small class="form-help">
+                                    <span id="headline-1-counter">0</span>/30 tekens
+                                </small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="post-headline-2">Headline 2 (30 tekens)</label>
+                                <input type="text" id="post-headline-2" name="headline2" placeholder="Tweede headline (max 30 tekens)" maxlength="30">
+                                <small class="form-help">
+                                    <span id="headline-2-counter">0</span>/30 tekens
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="post-headline-3">Headline 3 (30 tekens)</label>
+                            <input type="text" id="post-headline-3" name="headline3" placeholder="Derde headline (max 30 tekens)" maxlength="30">
+                            <small class="form-help">
+                                <span id="headline-3-counter">0</span>/30 tekens
+                            </small>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="post-category">Categorie *</label>
+                                <select id="post-category" name="category" required>
+                                    <option value="">Selecteer een categorie</option>
+                                    <option value="SEO">SEO</option>
+                                    <option value="Content Marketing">Content Marketing</option>
+                                    <option value="Digital Marketing">Digital Marketing</option>
+                                    <option value="Social Media Marketing">Social Media Marketing</option>
+                                    <option value="Google Tag Manager">Google Tag Manager</option>
+                                    <option value="E-commerce">E-commerce</option>
+                                    <option value="Analytics">Analytics</option>
+                                    <option value="Conversie Optimalisatie">Conversie Optimalisatie</option>
+                                    <option value="Technologie">Technologie</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="post-author">Auteur *</label>
+                                <select id="post-author" name="author" required>
+                                    <option value="">Selecteer een auteur</option>
+                                    <option value="Wouter Naber" selected>Wouter Naber</option>
+                                    <option value="Lasse Botman">Lasse Botman</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="post-date">Publicatiedatum *</label>
+                                <input type="date" id="post-date" name="date" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="post-read-count">Lees aantal</label>
+                                <input type="number" id="post-read-count" name="readCount" placeholder="0" min="0">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="post-hero-image">Hero Afbeelding</label>
+                            <div class="image-upload-section">
+                                <div class="upload-area" id="upload-area">
+                                    <div class="upload-content">
+                                        <div class="upload-icon">📷</div>
+                                        <p>Klik om een afbeelding te uploaden of sleep hier</p>
+                                        <small>Maximaal 5MB, JPG, PNG, GIF</small>
+                                    </div>
+                                    <input type="file" id="image-upload" accept="image/*" style="display: none;">
+                                </div>
+                                <div class="image-preview" id="image-preview" style="display: none;">
+                                    <img id="preview-img" src="" alt="Preview">
+                                    <div class="image-info">
+                                        <p id="image-filename"></p>
+                                        <button type="button" id="remove-image" class="btn btn-small btn-danger">Verwijder</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" id="post-hero-image" name="heroImage" value="images/Hetportretbureau_LR__T1A1116.jpg">
+                            <div class="form-group" style="margin-top: 1rem;">
+                                <label for="post-hero-alt">Hero Afbeelding Alt Tekst</label>
+                                <input type="text" id="post-hero-alt" name="heroAlt" placeholder="Beschrijving van de afbeelding">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>Blog Content</h2>
+                        <div class="form-group">
+                            <label for="content">Content (HTML) *</label>
+                            <textarea id="content" name="content" placeholder="Voer je blog content in HTML format in..." required style="width: 100%; height: 400px; padding: 1rem; border: 1px solid #ddd; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 14px; resize: vertical; background: #f8f9fa;"></textarea>
+                            <small class="form-help">Voer je content in als HTML. Gebruik &lt;p&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;, &lt;strong&gt;, &lt;em&gt;, etc.</small>
+                        </div>
+                    </div>
+
+
+                    <div class="form-actions">
+                        <button type="button" id="preview-btn" class="btn btn-secondary">Preview</button>
+                        <button type="submit" class="btn btn-primary">Blog Post Opslaan</button>
+                    </div>
+                    </form>
+                </div>
+
+                <!-- Manage Posts Tab -->
+                <div id="manage-content" class="tab-content">
+                    <div class="file-manager">
+                        <h2>Blog Posts in Content Map</h2>
+                        <div id="files-list" class="files-list">
+                            <!-- Generated files will be listed here -->
+                        </div>
+                        <div class="file-actions">
+                            <button id="refresh-files" class="btn btn-secondary">Ververs Lijst</button>
+                            <button id="clear-files" class="btn btn-secondary">Wis Alle Data</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Preview Modal -->
+    <div id="preview-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Blog Post Preview</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body" id="preview-content">
+                <!-- Preview content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="cms.js"></script>
+</body>
+</html>

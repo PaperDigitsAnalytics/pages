@@ -1,0 +1,12 @@
+{
+  "host": "your-ftp-server.com",
+  "user": "your-username",
+  "password": "your-password",
+  "secure": false,
+  "port": 21,
+  "remotePath": "/public_html",
+  "localPath": "static-export"
+}
+
+
+

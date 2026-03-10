@@ -1,0 +1,33 @@
+{
+  "name": "paperdigits-blog-cms",
+  "version": "2.0.0",
+  "description": "Statische blog CMS voor PaperDigits - genereert statische HTML bestanden",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "export": "node export-static.js",
+    "build": "node export-static.js",
+    "inject:reviews": "node ./scripts/inject-reviews.js",
+    "sync": "node sync-ftp.js",
+    "deploy": "npm run export && npm run sync",
+    "sync:verbose": "node sync-ftp.js --verbose"
+  },
+  "dependencies": {
+    "basic-ftp": "^5.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "multer": "^2.0.2",
+    "sharp": "^0.34.3"
+  },
+  "keywords": [
+    "blog",
+    "cms",
+    "static",
+    "nodejs",
+    "express",
+    "paperdigits"
+  ],
+  "author": "PaperDigits",
+  "license": "MIT"
+}

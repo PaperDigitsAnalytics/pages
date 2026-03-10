@@ -1,0 +1,35 @@
+Enhanced Conversions inrichten via Google Tag Manager
+Microsoft Ads conversietracking via GTM
+Meta Pixel installeren via Google Tag Manager
+Meta Conversion API opzetten
+LinkedIn Insight Tag via GTM
+TikTok Pixel installeren via GTM
+Pinterest Tag implementeren via GTM
+Cookiebot koppelen aan Google Tag Manager
+Consent Mode v2 voor Shopify
+Consent Mode v2 voor WordPress
+First-party tracking opzetten voor betere datakwaliteit
+UTM-structuur opzetten voor consistente campagnemetingen
+Formuliertracking in GA4 zonder developers
+Telefonische leads meten in GA4 en Google Ads
+Scroll depth en engagement meten in GA4
+Video tracking instellen met Google Tag Manager
+404-pagina's meten en oplossen met GA4
+Interne zoekopdrachten meten in GA4
+Custom dimensions en metrics instellen in GA4
+BigQuery koppelen aan GA4
+Looker Studio dashboard bouwen op GA4-data
+GA4 DebugView gebruiken om implementaties te testen
+GA4 funnels bouwen voor leadgeneratie
+Klaviyo tracking via Google Tag Manager
+Calendly conversies meten in GA4
+HubSpot formulieren meten in GA4
+Server-side tracking voor Meta Ads
+Server-side tagging voor Google Ads
+Wat is een goede ROAS en hoe stuur je erop
+Attributie in GA4: wat kun je nog vertrouwen
+CRO voor leadgeneratie: de snelste optimalisaties
+Landingspagina's analyseren met Hotjar en GA4
+SEO en AI Overviews: wat betekent dit voor verkeer en conversie
+Waarom je marketingdashboard niemand gebruikt
+Meting van nieuwsbriefinschrijvingen in GA4 en GTM
