@@ -3,7 +3,11 @@
     "slug": "enhanced-conversions-via-gtm-inrichten",
     "title": "Enhanced Conversions via GTM Inrichten",
     "category": "Google Tag Manager",
-    "keywords": ["enhanced conversions", "google ads conversies", "first-party data"],
-    "status": "pending"
+    "keywords": [
+      "enhanced conversions",
+      "google ads conversies",
+      "first-party data"
+    ],
+    "status": "scaffolded"
   }
 ]

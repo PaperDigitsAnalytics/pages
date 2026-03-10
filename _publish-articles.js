@@ -2,7 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 
-const imageMap = {
+const CONTENT_MACHINE_MANIFEST = path.join(__dirname, 'content-machine-manifest.json');
+
+const hardcodedImageMap = {
   'bigquery-koppelen-aan-ga4':                                        { img: 'businessman-tablet-financial-data-charts.jpg',   readCount: 412, ts: 1741518000000, id: 412847301 },
   'enhanced-conversions-via-gtm':                                     { img: 'google-logo-iphone-desk.jpg',                    readCount: 538, ts: 1741519000000, id: 538102847 },
   'meta-conversion-api':                                              { img: 'social-media-management-laptop-phone.jpg',       readCount: 291, ts: 1741520000000, id: 291836547 },
@@ -22,7 +24,7 @@ const imageMap = {
   'channel-grouping-instellen-ga4':                                   { img: 'saas-business-dashboard-metrics.jpg',            readCount: 0,   ts: 1773151200000, id: 561204389 },
 };
 
-const relatedMap = {
+const hardcodedRelatedMap = {
   'bigquery-koppelen-aan-ga4': [
     ['ga4-implementeren', 'GA4 implementeren'],
     ['ga4-rapportages-en-dashboards', 'GA4 rapportages en dashboards'],
@@ -143,6 +145,27 @@ const relatedMap = {
     ['ga4-implementeren', 'GA4 implementeren'],
   ],
 };
+
+function loadContentMachineManifest() {
+  if (!fs.existsSync(CONTENT_MACHINE_MANIFEST)) {
+    return { imageMap: {}, relatedMap: {} };
+  }
+
+  try {
+    const manifest = JSON.parse(fs.readFileSync(CONTENT_MACHINE_MANIFEST, 'utf8'));
+    return {
+      imageMap: manifest.imageMap || {},
+      relatedMap: manifest.relatedMap || {},
+    };
+  } catch (error) {
+    console.warn(`⚠️  Could not read content-machine manifest: ${error.message}`);
+    return { imageMap: {}, relatedMap: {} };
+  }
+}
+
+const contentMachineManifest = loadContentMachineManifest();
+const imageMap = { ...hardcodedImageMap, ...contentMachineManifest.imageMap };
+const relatedMap = { ...hardcodedRelatedMap, ...contentMachineManifest.relatedMap };
 
 function parseFrontmatter(content) {
   const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);

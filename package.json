@@ -9,6 +9,8 @@
     "export": "node export-static.js",
     "build": "node export-static.js",
     "inject:reviews": "node ./scripts/inject-reviews.js",
+    "content:scaffold": "node ./scripts/content-machine.js scaffold",
+    "content:validate": "node ./scripts/content-machine.js validate",
     "sync": "node sync-ftp.js",
     "deploy": "npm run export && npm run sync",
     "sync:verbose": "node sync-ftp.js --verbose"

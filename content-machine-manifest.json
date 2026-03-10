@@ -1,0 +1,34 @@
+{
+  "imageMap": {
+    "enhanced-conversions-via-gtm-inrichten": {
+      "img": "google-logo-iphone-desk.jpg",
+      "readCount": 0,
+      "ts": 1773156367123,
+      "id": 784355639
+    }
+  },
+  "relatedMap": {
+    "enhanced-conversions-via-gtm-inrichten": [
+      [
+        "enhanced-conversions-via-gtm",
+        "Enhanced Conversions via GTM"
+      ],
+      [
+        "google-ads-tracking-via-gtm",
+        "Google Ads tracking via GTM"
+      ],
+      [
+        "google-tag-manager-vs-gtagjs",
+        "Google Tag Manager vs. gtag.js"
+      ],
+      [
+        "gtm-voor-shopify",
+        "GTM voor Shopify"
+      ],
+      [
+        "cross-domain-tracking",
+        "Cross-domain tracking"
+      ]
+    ]
+  }
+}
