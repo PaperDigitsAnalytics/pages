@@ -19,6 +19,7 @@ const imageMap = {
   'microsoft-clarity-via-gtm':                                        { img: 'ux-research-user-goals-sketch.jpg',              readCount: 0,   ts: 1773134700000, id: 573810294 },
   'pinterest-tag-via-gtm':                                            { img: 'people-using-smartphones-blurred.jpg',           readCount: 0,   ts: 1773134400000, id: 628401753 },
   'microsoft-ads-uet-tag-via-gtm':                                    { img: 'typing-on-laptop-google-search.jpg',             readCount: 0,   ts: 1773135000000, id: 794316028 },
+  'channel-grouping-instellen-ga4':                                   { img: 'saas-business-dashboard-metrics.jpg',            readCount: 0,   ts: 1773151200000, id: 561204389 },
 };
 
 const relatedMap = {
@@ -133,6 +134,13 @@ const relatedMap = {
     ['offline-conversies-importeren-in-google-ads', 'Offline conversies importeren in Google Ads'],
     ['consent-mode-correct-instellen', 'Consent Mode correct instellen'],
     ['google-tag-manager-installeren', 'Google Tag Manager installeren'],
+  ],
+  'channel-grouping-instellen-ga4': [
+    ['attributie-in-ga4-wat-kun-je-nog-vertrouwen', 'Attributie in GA4: wat kun je nog vertrouwen?'],
+    ['ga4-rapportages-en-dashboards', 'GA4 rapportages en dashboards'],
+    ['bigquery-koppelen-aan-ga4', 'BigQuery koppelen aan GA4'],
+    ['waarom-je-marketingdashboard-niemand-gebruikt', 'Waarom je marketingdashboard niemand gebruikt'],
+    ['ga4-implementeren', 'GA4 implementeren'],
   ],
 };
 
