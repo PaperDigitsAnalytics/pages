@@ -15,6 +15,7 @@
     "content:review": "node ./scripts/content-machine.js review",
     "content:approve": "node ./scripts/content-machine.js approve",
     "content:reject": "node ./scripts/content-machine.js reject",
+    "content:publish": "node _publish-articles.js --slug",
     "sync": "node sync-ftp.js",
     "deploy": "npm run export && npm run sync",
     "sync:verbose": "node sync-ftp.js --verbose"

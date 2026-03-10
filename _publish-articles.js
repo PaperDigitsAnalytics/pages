@@ -514,10 +514,34 @@ const VARIANTS = [
 ];
 
 (async () => {
-  const mdFiles = fs.readdirSync('copywriter-artikelen').filter(f => f.endsWith('.md'));
-  const metadata = JSON.parse(fs.readFileSync('blog-metadata.json', 'utf8'));
+  // Parse optional --slug argument for selective publish
+  const slugArg = (() => {
+    const i = process.argv.indexOf('--slug');
+    return i >= 0 ? process.argv[i + 1] : null;
+  })();
 
-  for (const file of mdFiles) {
+  if (slugArg) {
+    console.log(`\n🎯 Selectieve publicatie: ${slugArg}\n`);
+  } else {
+    console.log('\n📦 Publiceer alle goedgekeurde artikelen\n');
+  }
+
+  let allMdFiles = fs.readdirSync('copywriter-artikelen').filter(f => f.endsWith('.md'));
+
+  if (slugArg) {
+    allMdFiles = allMdFiles.filter(f => f === `${slugArg}.md` || f === slugArg);
+    if (allMdFiles.length === 0) {
+      console.error(`❌ Geen markdown-bestand gevonden voor slug: ${slugArg}`);
+      console.error(`   Verwacht: copywriter-artikelen/${slugArg}.md`);
+      process.exit(1);
+    }
+  }
+
+  const metadata = JSON.parse(fs.readFileSync('blog-metadata.json', 'utf8'));
+  const skipped = [];
+  let processed = 0;
+
+  for (const file of allMdFiles) {
     const raw = fs.readFileSync(path.join('copywriter-artikelen', file), 'utf8');
     const { fm, body } = parseFrontmatter(raw);
     const slug = fm.slug;
@@ -525,7 +549,7 @@ const VARIANTS = [
     // Gate: content-machine articles must be approved
     const topicEntry = topicsMap[slug];
     if (topicEntry && topicEntry.status !== 'approved' && topicEntry.status !== 'published') {
-      console.warn(`⚠️  ${slug}: status is '${topicEntry.status}' — alleen 'approved' artikelen worden gepubliceerd.`);
+      skipped.push({ slug, status: topicEntry.status });
       continue;
     }
 
@@ -594,9 +618,25 @@ const VARIANTS = [
       const updatedTopics = topics.map(t => t.slug === slug ? { ...t, status: 'published' } : t);
       fs.writeFileSync(path.join(__dirname, 'content-topics.json'), JSON.stringify(updatedTopics, null, 2) + '\n', 'utf8');
     }
+
+    processed++;
   }
 
   fs.writeFileSync('blog-metadata.json', JSON.stringify(metadata, null, 2));
-  console.log('\n🎉 All articles processed!');
+
+  console.log(`\n${'─'.repeat(50)}`);
+  if (processed > 0) {
+    console.log(`✅ Gepubliceerd: ${processed} artikel${processed !== 1 ? 'en' : ''}`);
+  } else {
+    console.log('ℹ️  Geen artikelen gepubliceerd.');
+  }
+  if (skipped.length > 0) {
+    console.log(`⏭️  Overgeslagen (niet approved):`);
+    for (const { slug, status } of skipped) {
+      console.log(`   - ${slug} (status: ${status})`);
+    }
+    console.log(`\n   Gebruik 'npm run content:approve -- <slug>' om een artikel goed te keuren.`);
+  }
+  console.log('');
 })().catch(console.error);
 
