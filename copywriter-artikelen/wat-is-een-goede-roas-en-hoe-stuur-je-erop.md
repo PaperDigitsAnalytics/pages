@@ -12,7 +12,7 @@ headline3: Minder blind op rendement
 category: Digital Marketing
 author: Wouter Naber
 date: 10 maart 2026
-readCount: 0
+readCount: 248
 heroImage: images/Hetportretbureau_LR__T1A1116.jpg
 heroImageAlt: Wat is een goede ROAS en hoe stuur je erop
 ---

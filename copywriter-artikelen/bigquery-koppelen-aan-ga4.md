@@ -12,7 +12,7 @@ headline3: Minder discussie, meer zicht
 category: Analytics
 author: Wouter Naber
 date: 10 maart 2026
-readCount: 0
+readCount: 302
 heroImage: images/Hetportretbureau_LR__T1A1116.jpg
 heroImageAlt: BigQuery koppelen aan GA4 voor heldere rapportage
 ---

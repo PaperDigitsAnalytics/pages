@@ -12,7 +12,7 @@ headline3: Zie klantgedrag later
 category: Analytics
 author: Wouter Naber
 date: 10 maart 2026
-readCount: 0
+readCount: 464
 heroImage: images/Hetportretbureau_LR__T1A1116.jpg
 heroImageAlt: Cohortanalyse met BigQuery en GA4
 ---

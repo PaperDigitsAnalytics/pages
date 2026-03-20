@@ -12,7 +12,7 @@ headline3: Beter sturen op cijfers
 category: Analytics
 author: Wouter Naber
 date: 10 maart 2026
-readCount: 0
+readCount: 287
 heroImage: images/Hetportretbureau_LR__T1A1116.jpg
 heroImageAlt: First-party tracking voor betere datakwaliteit
 ---

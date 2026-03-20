@@ -12,7 +12,7 @@ headline3: Minder giswerk in leads
 category: Google Tag Manager
 author: Wouter Naber
 date: 10 maart 2026
-readCount: 0
+readCount: 494
 heroImage: images/Hetportretbureau_LR__T1A1116.jpg
 heroImageAlt: LinkedIn Insight Tag instellen via Google Tag Manager
 ---

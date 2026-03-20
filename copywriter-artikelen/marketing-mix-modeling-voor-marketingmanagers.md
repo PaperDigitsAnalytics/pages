@@ -12,7 +12,7 @@ headline3: Kanaalbijdrage zichtbaar
 category: Digital Marketing
 author: Wouter Naber
 date: 10 maart 2026
-readCount: 0
+readCount: 373
 heroImage: images/Hetportretbureau_LR__T1A1116.jpg
 heroImageAlt: Marketing Mix Modeling voor betere budgetbeslissingen
 ---

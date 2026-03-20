@@ -9,7 +9,17 @@
       "Bash(npm run:*)",
       "Bash(grep:*)",
       "Bash(ls /c/Users/wouter/Documents/pages-v2/*.js)",
-      "Bash(ls C:/Users/wouter/Documents/pages-v2/copywriter-artikelen/ && echo \"---\" && ls C:/Users/wouter/Documents/pages-v2/content/*.html | xargs -I{} basename {} .html | sort > /tmp/content_slugs.txt && ls C:/Users/wouter/Documents/pages-v2/copywriter-artikelen/*.md | xargs -I{} basename {} .md | sort > /tmp/md_slugs.txt && comm -23 /tmp/md_slugs.txt /tmp/content_slugs.txt)"
+      "Bash(ls C:/Users/wouter/Documents/pages-v2/copywriter-artikelen/ && echo \"---\" && ls C:/Users/wouter/Documents/pages-v2/content/*.html | xargs -I{} basename {} .html | sort > /tmp/content_slugs.txt && ls C:/Users/wouter/Documents/pages-v2/copywriter-artikelen/*.md | xargs -I{} basename {} .md | sort > /tmp/md_slugs.txt && comm -23 /tmp/md_slugs.txt /tmp/content_slugs.txt)",
+      "Skill(update-config)",
+      "mcp__bigquery__bq_datasets",
+      "mcp__bigquery__bq_tables",
+      "mcp__bigquery__bq_schema",
+      "mcp__bigquery__bq_preview",
+      "mcp__bigquery__bq_query"
     ]
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "bigquery"
+  ]
 }

@@ -12,7 +12,7 @@ headline3: Minder loze leads
 category: Google Ads
 author: Wouter Naber
 date: 10 maart 2026
-readCount: 0
+readCount: 347
 heroImage: images/Hetportretbureau_LR__T1A1116.jpg
 heroImageAlt: Offline conversies importeren in Google Ads voor betere leadkwaliteit
 ---

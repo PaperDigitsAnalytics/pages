@@ -5,6 +5,30 @@
       "readCount": 0,
       "ts": 1773156367123,
       "id": 784355639
+    },
+    "ga4-custom-channel-groups": {
+      "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+      "readCount": 0,
+      "ts": 1773156782151,
+      "id": 925531057
+    },
+    "consent-mode-v2-via-gtm": {
+      "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+      "readCount": 0,
+      "ts": 1773156782158,
+      "id": 501740961
+    },
+    "ga4-utm-structuur-opzetten": {
+      "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+      "readCount": 0,
+      "ts": 1773156782163,
+      "id": 707154724
+    },
+    "meta-deduplicatie-via-gtm-en-capi": {
+      "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+      "readCount": 0,
+      "ts": 1773156782165,
+      "id": 853189078
     }
   },
   "relatedMap": {
@@ -28,6 +52,94 @@
       [
         "cross-domain-tracking",
         "Cross-domain tracking"
+      ]
+    ],
+    "ga4-custom-channel-groups": [
+      [
+        "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+        "Attributie in GA4: wat kun je nog vertrouwen?"
+      ],
+      [
+        "bigquery-contribution-analysis-voor-campagneveranderingen",
+        "BigQuery contribution analysis voor campagneveranderingen"
+      ],
+      [
+        "bigquery-forecasting-voor-marketingplanning",
+        "BigQuery forecasting voor marketingplanning"
+      ],
+      [
+        "bigquery-koppelen-aan-ga4",
+        "BigQuery koppelen aan GA4"
+      ],
+      [
+        "bigquery-ml-voor-customer-segmentatie",
+        "BigQuery ML voor customer segmentatie"
+      ]
+    ],
+    "consent-mode-v2-via-gtm": [
+      [
+        "google-consent-mode-v2-verplicht-n-urgent",
+        "Google Consent Mode v2: verplicht én urgent"
+      ],
+      [
+        "cross-domain-tracking",
+        "Cross-domain tracking"
+      ],
+      [
+        "e-commerce-tracking-via-gtm",
+        "E-commerce tracking via GTM"
+      ],
+      [
+        "enhanced-conversions-via-gtm",
+        "Enhanced Conversions via GTM"
+      ],
+      [
+        "google-ads-tracking-via-gtm",
+        "Google Ads tracking via GTM"
+      ]
+    ],
+    "ga4-utm-structuur-opzetten": [
+      [
+        "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+        "Attributie in GA4: wat kun je nog vertrouwen?"
+      ],
+      [
+        "bigquery-contribution-analysis-voor-campagneveranderingen",
+        "BigQuery contribution analysis voor campagneveranderingen"
+      ],
+      [
+        "bigquery-forecasting-voor-marketingplanning",
+        "BigQuery forecasting voor marketingplanning"
+      ],
+      [
+        "bigquery-koppelen-aan-ga4",
+        "BigQuery koppelen aan GA4"
+      ],
+      [
+        "bigquery-ml-voor-customer-segmentatie",
+        "BigQuery ML voor customer segmentatie"
+      ]
+    ],
+    "meta-deduplicatie-via-gtm-en-capi": [
+      [
+        "cross-domain-tracking",
+        "Cross-domain tracking"
+      ],
+      [
+        "e-commerce-tracking-via-gtm",
+        "E-commerce tracking via GTM"
+      ],
+      [
+        "enhanced-conversions-via-gtm",
+        "Enhanced Conversions via GTM"
+      ],
+      [
+        "google-ads-tracking-via-gtm",
+        "Google Ads tracking via GTM"
+      ],
+      [
+        "google-tag-manager-installeren",
+        "Google Tag Manager installeren"
       ]
     ]
   }

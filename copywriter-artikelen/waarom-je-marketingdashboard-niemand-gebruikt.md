@@ -12,7 +12,7 @@ headline3: Minder cijfers, meer keuze
 category: Analytics
 author: Wouter Naber
 date: 10 maart 2026
-readCount: 0
+readCount: 296
 heroImage: images/Hetportretbureau_LR__T1A1116.jpg
 heroImageAlt: Waarom je marketingdashboard niemand gebruikt
 ---

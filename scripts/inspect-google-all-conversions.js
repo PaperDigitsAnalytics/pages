@@ -1,0 +1,6 @@
+const {GoogleAuth}=require('google-auth-library');
+const fs=require('fs');
+const keyFile='C:/Users/wouter/Documents/spreker/despreker-c1aa07772fee.json';
+async function token(){const auth=new GoogleAuth({keyFile,scopes:['https://www.googleapis.com/auth/bigquery.readonly']});const c=await auth.getClient();return (await c.getAccessToken()).token;}
+async function api(url){const t=await token();const r=await fetch(url,{headers:{Authorization:`Bearer ${t}`}});const text=await r.text();const j=text?JSON.parse(text):{};if(!r.ok) throw new Error(`${r.status} ${text}`);return j;}
+(async()=>{for(const table of ['CampaignConversionStats_3612505204','AdGroupConversionStats_3612505204']){const j=await api('https://bigquery.googleapis.com/bigquery/v2/projects/despreker/datasets/google_ads/tables/'+table);console.log('\n['+table+']');for(const f of (j.schema?.fields||[])){if(/all/i.test(f.name)||/conversion/i.test(f.name)) console.log('-',f.name+':'+f.type);}}})().catch(e=>{console.error(e.stack||String(e));process.exit(1);});

@@ -2,6 +2,332 @@ const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 
+const CONSENT_MODE_BOOTSTRAP = `
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function(){dataLayer.push(arguments);};
+      (function(){
+        var KEY = 'pd_cookie_consent_v1';
+        var raw = null;
+        try { raw = localStorage.getItem(KEY); } catch(e) {}
+        var saved = null;
+        try { saved = raw ? JSON.parse(raw) : null; } catch(e) { saved = null; }
+        var analyticsGranted = !!(saved && saved.analytics);
+        var marketingGranted = !!(saved && saved.marketing);
+        gtag('consent', 'default', {
+          ad_storage: marketingGranted ? 'granted' : 'denied',
+          ad_user_data: marketingGranted ? 'granted' : 'denied',
+          ad_personalization: marketingGranted ? 'granted' : 'denied',
+          analytics_storage: analyticsGranted ? 'granted' : 'denied',
+          functionality_storage: 'granted',
+          security_storage: 'granted',
+          wait_for_update: 500
+        });
+      })();
+    </script>`;
+
+const CONSENT_BANNER_HTML = `
+    <div class="pd-consent" id="pd-consent" hidden>
+      <div class="pd-consent__backdrop" data-consent-close></div>
+      <div class="pd-consent__panel" role="dialog" aria-modal="true" aria-labelledby="pd-consent-title" aria-describedby="pd-consent-desc">
+        <div class="pd-consent__body pd-consent__body--main">
+          <p class="pd-consent__eyebrow">Cookie-instellingen</p>
+          <h2 id="pd-consent-title" class="pd-consent__title">Wij gebruiken cookies om de site te laten werken en marketing te verbeteren</h2>
+          <p id="pd-consent-desc" class="pd-consent__text">We gebruiken noodzakelijke cookies altijd. Met analytics meten we gebruik van de site. Met marketingcookies kunnen we campagnes beter meten en advertenties relevanter maken. Je kunt zelf kiezen wat je toestaat.</p>
+          <div class="pd-consent__actions">
+            <button type="button" class="pd-consent__btn pd-consent__btn--ghost" data-consent-action="reject">Alles weigeren</button>
+            <button type="button" class="pd-consent__btn pd-consent__btn--primary" data-consent-action="accept">Alles accepteren</button>
+          </div>
+          <div class="pd-consent__links">
+            <button type="button" class="pd-consent__linklike" data-consent-action="preferences">Voorkeuren kiezen</button>
+            <a href="https://paperdigits.nl/privacybeleid/" target="_blank" rel="noopener">Privacybeleid</a>
+            <a href="https://paperdigits.nl/cookiebeleid/" target="_blank" rel="noopener">Cookiebeleid</a>
+          </div>
+        </div>
+        <div class="pd-consent__body pd-consent__body--prefs" hidden>
+          <div class="pd-consent__prefs-head">
+            <button type="button" class="pd-consent__back" data-consent-back aria-label="Terug">←</button>
+            <h2 class="pd-consent__title pd-consent__title--small">Voorkeuren beheren</h2>
+          </div>
+          <div class="pd-consent__group">
+            <div>
+              <p class="pd-consent__group-title">Noodzakelijk</p>
+              <p class="pd-consent__group-text">Deze cookies zijn nodig om de site veilig en technisch werkend te houden.</p>
+            </div>
+            <span class="pd-consent__status">Altijd actief</span>
+          </div>
+          <label class="pd-consent__group pd-consent__group--toggle">
+            <div>
+              <p class="pd-consent__group-title">Analytics</p>
+              <p class="pd-consent__group-text">Helpt ons begrijpen welke pagina’s worden bezocht en waar de site beter kan.</p>
+            </div>
+            <span class="pd-switch">
+              <input type="checkbox" id="pd-consent-analytics">
+              <span class="pd-switch__slider"></span>
+            </span>
+          </label>
+          <label class="pd-consent__group pd-consent__group--toggle">
+            <div>
+              <p class="pd-consent__group-title">Marketing</p>
+              <p class="pd-consent__group-text">Maakt het mogelijk om Google Ads beter te meten en doelgroepen op te bouwen.</p>
+            </div>
+            <span class="pd-switch">
+              <input type="checkbox" id="pd-consent-marketing">
+              <span class="pd-switch__slider"></span>
+            </span>
+          </label>
+          <div class="pd-consent__actions pd-consent__actions--prefs">
+            <button type="button" class="pd-consent__btn pd-consent__btn--ghost" data-consent-action="reject">Alles weigeren</button>
+            <button type="button" class="pd-consent__btn pd-consent__btn--primary" data-consent-action="save">Voorkeuren opslaan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="pd-consent-manage" id="pd-consent-manage" hidden>Cookie-instellingen</button>`;
+
+const CONSENT_BANNER_SCRIPT = `
+    <script>
+      (function(){
+        var KEY = 'pd_cookie_consent_v1';
+        var root = document.getElementById('pd-consent');
+        if (!root) return;
+        var main = root.querySelector('.pd-consent__body--main');
+        var prefs = root.querySelector('.pd-consent__body--prefs');
+        var manage = document.getElementById('pd-consent-manage');
+        var analyticsInput = document.getElementById('pd-consent-analytics');
+        var marketingInput = document.getElementById('pd-consent-marketing');
+
+        function read() {
+          try {
+            var raw = localStorage.getItem(KEY);
+            return raw ? JSON.parse(raw) : null;
+          } catch(e) { return null; }
+        }
+
+        function pushConsent(consent) {
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = window.gtag || function(){dataLayer.push(arguments);};
+          gtag('consent', 'update', {
+            ad_storage: consent.marketing ? 'granted' : 'denied',
+            ad_user_data: consent.marketing ? 'granted' : 'denied',
+            ad_personalization: consent.marketing ? 'granted' : 'denied',
+            analytics_storage: consent.analytics ? 'granted' : 'denied',
+            functionality_storage: 'granted',
+            security_storage: 'granted'
+          });
+          dataLayer.push({
+            event: 'consent_update',
+            consent_choice: consent.marketing && consent.analytics ? 'accept_all' : (!consent.marketing && !consent.analytics ? 'reject_all' : 'custom'),
+            consent_analytics: consent.analytics ? 'granted' : 'denied',
+            consent_marketing: consent.marketing ? 'granted' : 'denied'
+          });
+        }
+
+        function save(consent) {
+          var payload = {
+            analytics: !!consent.analytics,
+            marketing: !!consent.marketing,
+            updatedAt: new Date().toISOString()
+          };
+          try { localStorage.setItem(KEY, JSON.stringify(payload)); } catch(e) {}
+          pushConsent(payload);
+          hideBanner();
+        }
+
+        function showBanner() {
+          root.hidden = false;
+          root.classList.remove('is-hidden');
+          document.documentElement.classList.add('has-consent-open');
+          if (manage) manage.hidden = true;
+        }
+        function hideBanner() {
+          root.classList.add('is-hidden');
+          root.hidden = true;
+          document.documentElement.classList.remove('has-consent-open');
+          if (manage) manage.hidden = true;
+        }
+        function showMain() {
+          root.classList.remove('is-hidden');
+          main.hidden = false;
+          prefs.hidden = true;
+          showBanner();
+        }
+        function showPrefs() {
+          root.classList.remove('is-hidden');
+          main.hidden = true;
+          prefs.hidden = false;
+          showBanner();
+        }
+        function showManage() {
+          if (manage) manage.hidden = true;
+        }
+
+        var saved = read();
+        if (saved) {
+          analyticsInput.checked = !!saved.analytics;
+          marketingInput.checked = !!saved.marketing;
+          pushConsent(saved);
+          root.classList.add('is-hidden');
+          root.hidden = true;
+          showManage();
+        } else {
+          showMain();
+        }
+
+        root.addEventListener('click', function(e){
+          var actionEl = e.target.closest('[data-consent-action]');
+          if (actionEl) {
+            var action = actionEl.getAttribute('data-consent-action');
+            if (action === 'accept') save({ analytics: true, marketing: true });
+            if (action === 'reject') save({ analytics: false, marketing: false });
+            if (action === 'preferences') showPrefs();
+            if (action === 'save') save({ analytics: !!analyticsInput.checked, marketing: !!marketingInput.checked });
+            return;
+          }
+          if (e.target.closest('[data-consent-back]')) {
+            showMain();
+            return;
+          }
+          if (e.target.closest('[data-consent-close]') && read()) {
+            hideBanner();
+          }
+        });
+
+        if (manage) {
+          manage.addEventListener('click', function(){
+            var current = read();
+            analyticsInput.checked = !!(current && current.analytics);
+            marketingInput.checked = !!(current && current.marketing);
+            showPrefs();
+          });
+        }
+      })();
+    </script>`;
+
+const WEB_VITALS_SCRIPT = `
+    <script>
+    (function(){
+      function pdPageContext(extra){
+        var body=document.body||{};
+        return Object.assign({
+          page_type: body.dataset ? (body.dataset.pageType || 'unknown') : 'unknown',
+          content_group: body.dataset ? (body.dataset.contentGroup || 'unknown') : 'unknown',
+          article_slug: body.dataset ? (body.dataset.articleSlug || '') : '',
+          article_title: body.dataset ? (body.dataset.articleTitle || '') : ''
+        }, extra || {});
+      }
+      function rating(name, value){
+        if (name === 'CLS') return value <= 0.1 ? 'good' : (value <= 0.25 ? 'needs_improvement' : 'poor');
+        if (name === 'INP') return value <= 200 ? 'good' : (value <= 500 ? 'needs_improvement' : 'poor');
+        if (name === 'LCP') return value <= 2500 ? 'good' : (value <= 4000 ? 'needs_improvement' : 'poor');
+        if (name === 'FCP') return value <= 1800 ? 'good' : (value <= 3000 ? 'needs_improvement' : 'poor');
+        if (name === 'TTFB') return value <= 800 ? 'good' : (value <= 1800 ? 'needs_improvement' : 'poor');
+        return 'unknown';
+      }
+      function push(name, value, extra){
+        if (typeof value !== 'number' || !isFinite(value)) return;
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(pdPageContext(Object.assign({
+          event: 'web_vital_' + name.toLowerCase(),
+          web_vital_name: name,
+          web_vital_value: Math.round(name === 'CLS' ? value * 1000 : value),
+          web_vital_value_raw: value,
+          web_vital_unit: name === 'CLS' ? 'score_x1000' : 'ms',
+          web_vital_rating: rating(name, value),
+          non_interaction: true
+        }, extra || {})));
+      }
+      try {
+        new PerformanceObserver(function(list){
+          list.getEntries().forEach(function(entry){
+            push('LCP', entry.startTime, { web_vital_entry_type: 'largest-contentful-paint' });
+          });
+        }).observe({type:'largest-contentful-paint', buffered:true});
+      } catch(e) {}
+      try {
+        var clsValue = 0;
+        new PerformanceObserver(function(list){
+          list.getEntries().forEach(function(entry){
+            if (!entry.hadRecentInput) clsValue += entry.value || 0;
+          });
+        }).observe({type:'layout-shift', buffered:true});
+        addEventListener('visibilitychange', function(){
+          if (document.visibilityState === 'hidden') push('CLS', clsValue, { web_vital_entry_type: 'layout-shift' });
+        }, true);
+      } catch(e) {}
+      try {
+        new PerformanceObserver(function(list){
+          var entries = list.getEntries();
+          var last = entries[entries.length - 1];
+          if (last) push('INP', last.duration, { web_vital_entry_type: 'event' });
+        }).observe({type:'event', buffered:true, durationThreshold:40});
+      } catch(e) {}
+      try {
+        new PerformanceObserver(function(list){
+          var entries = list.getEntries();
+          var first = entries[0];
+          if (first) push('FCP', first.startTime, { web_vital_entry_type: 'paint' });
+        }).observe({type:'paint', buffered:true});
+      } catch(e) {}
+      try {
+        var nav = performance.getEntriesByType && performance.getEntriesByType('navigation');
+        var entry = nav && nav[0];
+        if (entry && typeof entry.responseStart === 'number') push('TTFB', entry.responseStart, { web_vital_entry_type: 'navigation' });
+      } catch(e) {}
+
+      try {
+        var scroll50Fired = false;
+        function fireScroll50(){
+          if (scroll50Fired) return;
+          var doc = document.documentElement;
+          var max = Math.max((doc.scrollHeight || 0) - (window.innerHeight || 0), 0);
+          if (!max) return;
+          var pct = ((window.scrollY || window.pageYOffset || 0) / max) * 100;
+          if (pct >= 50) {
+            scroll50Fired = true;
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push(pdPageContext({ event: 'scroll_50', scroll_percent: 50, non_interaction: true }));
+            window.removeEventListener('scroll', fireScroll50, { passive: true });
+          }
+        }
+        window.addEventListener('scroll', fireScroll50, { passive: true });
+        fireScroll50();
+      } catch(e) {}
+
+      try {
+        var timer20Fired = false;
+        setTimeout(function(){
+          if (timer20Fired) return;
+          timer20Fired = true;
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push(pdPageContext({ event: 'timer_20_seconds', engaged_time_seconds: 20, non_interaction: true }));
+        }, 20000);
+      } catch(e) {}
+
+      try {
+        document.addEventListener('click', function(e){
+          var link = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+          if (!link) return;
+          var href = link.getAttribute('href') || '';
+          if (!href || href.startsWith('#') || href.startsWith('javascript:') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+          var url;
+          try { url = new URL(link.href, window.location.href); } catch(err) { return; }
+          if (url.origin !== window.location.origin) return;
+          var currentPath = window.location.pathname.replace(/\/$/, '');
+          var targetPath = url.pathname.replace(/\/$/, '');
+          if (!targetPath || targetPath === currentPath) return;
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push(pdPageContext({
+            event: 'internal_navigation_click',
+            link_url: url.href,
+            link_path: url.pathname,
+            link_text: (link.textContent || '').trim().slice(0, 120)
+          }));
+        }, true);
+      } catch(e) {}
+    })();
+    </script>`;
+
 // Configuration
 const config = {
     outputDir: 'static-export',
@@ -210,9 +536,22 @@ function generateBlogPostHTML(postData, responsiveImages = []) {
     <meta name="twitter:description" content="${postData.description}">
     <meta name="twitter:image" content="https://pages.paperdigits.nl/${heroImageSrc}">
     
+${CONSENT_MODE_BOOTSTRAP}
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N834FBSV');</script>
+    <!-- End Google Tag Manager -->
+
     <link rel="stylesheet" href="styles.css?v=0">
 </head>
-<body>
+<body data-page-type="article" data-content-group="${postData.category || 'unknown'}" data-article-slug="${postData.slug}" data-article-title="${postData.title.replace(/"/g, '&quot;')}" data-article-author="${(postData.author || '').replace(/"/g, '&quot;')}" data-publish-date="${(postData.date || '').replace(/"/g, '&quot;')}" data-read-count="${postData.readCount || 0}">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N834FBSV"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <header class="header">
         <div class="header__container">
             <a class="header__logo" href="https://paperdigits.nl/">
@@ -404,34 +743,95 @@ function generateBlogPostHTML(postData, responsiveImages = []) {
     </div>
     <script>
     (function(){
+        function pdPageContext(extra){
+            var body=document.body||{};
+            return Object.assign({
+                page_type: body.dataset ? (body.dataset.pageType || 'unknown') : 'unknown',
+                content_group: body.dataset ? (body.dataset.contentGroup || 'unknown') : 'unknown',
+                article_slug: body.dataset ? (body.dataset.articleSlug || '') : '',
+                article_title: body.dataset ? (body.dataset.articleTitle || '') : '',
+                article_author: body.dataset ? (body.dataset.articleAuthor || '') : '',
+                publish_date: body.dataset ? (body.dataset.publishDate || '') : '',
+                read_count: body.dataset ? Number(body.dataset.readCount || 0) : 0
+            }, extra || {});
+        }
+        try{if(window.dataLayer)window.dataLayer.push(pdPageContext({event:'page_context'}));}catch(e){}
+        try {
+            if (!window.__pdBehaviorListeners) {
+                window.__pdBehaviorListeners = true;
+                var scrolled50 = false;
+                function pushBehavior(extra){
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push(pdPageContext(extra));
+                }
+                function onScroll(){
+                    if (scrolled50) return;
+                    var doc = document.documentElement;
+                    var body = document.body;
+                    var scrollTop = window.pageYOffset || doc.scrollTop || body.scrollTop || 0;
+                    var viewport = window.innerHeight || doc.clientHeight || 0;
+                    var full = Math.max(body.scrollHeight, doc.scrollHeight, body.offsetHeight, doc.offsetHeight, body.clientHeight, doc.clientHeight);
+                    var pct = full > viewport ? ((scrollTop + viewport) / full) * 100 : 100;
+                    if (pct >= 50) {
+                        scrolled50 = true;
+                        pushBehavior({ event:'scroll_50', scroll_threshold:50, page_path: location.pathname });
+                    }
+                }
+                window.addEventListener('scroll', onScroll, { passive:true });
+                setTimeout(function(){
+                    pushBehavior({ event:'timer_20_seconds', engagement_time_seconds:20, page_path: location.pathname });
+                }, 20000);
+                document.addEventListener('click', function(e){
+                    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+                    if (!a) return;
+                    var href = a.getAttribute('href') || '';
+                    if (!href || href.indexOf('#') === 0 || href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0 || href.indexOf('javascript:') === 0) return;
+                    var url;
+                    try { url = new URL(href, location.href); } catch(err) { return; }
+                    if (url.hostname !== location.hostname) return;
+                    pushBehavior({ event:'internal_navigation_click', link_url:url.href, link_text:(a.textContent || '').trim(), page_path: location.pathname });
+                }, true);
+            }
+        } catch(e) {}
         var KEY='pd_sticky_dismissed',DAYS=7;
         var bar=document.getElementById('pd-sticky-bar');
         if(!bar)return;
         try{var v=localStorage.getItem(KEY);if(v&&Date.now()<parseInt(v,10))return;}catch(e){}
         setTimeout(function(){
             bar.classList.add('is-visible');
-            try{if(window.dataLayer)window.dataLayer.push({event:'sticky_cta_view'});}catch(e){}
+            try{if(window.dataLayer)window.dataLayer.push(pdPageContext({event:'sticky_cta_view', contact_method:'sticky_cta'}));}catch(e){}
         },5000);
         document.getElementById('pd-sticky-bar__close').addEventListener('click',function(){
             bar.classList.remove('is-visible');
-            try{localStorage.setItem(KEY,Date.now()+DAYS*86400000);if(window.dataLayer)window.dataLayer.push({event:'sticky_cta_dismiss'});}catch(e){}
+            try{localStorage.setItem(KEY,Date.now()+DAYS*86400000);if(window.dataLayer)window.dataLayer.push(pdPageContext({event:'sticky_cta_dismiss'}));}catch(e){}
         });
         document.getElementById('pd-sticky-bar__btn').addEventListener('click',function(){
-            try{if(window.dataLayer)window.dataLayer.push({event:'sticky_cta_click'});}catch(e){}
-            try{if(typeof window.gtag==='function'&&window.GADS_SEND_TO_CTA)window.gtag('event','conversion',{send_to:window.GADS_SEND_TO_CTA});}catch(e){}
-        });
+            try{if(window.dataLayer)window.dataLayer.push(pdPageContext({event:'sticky_cta_click', contact_method:'sticky_cta'}));}catch(e){}        });
     })();
     </script>
     <script>
     (function(){
+        function pdPageContext(extra){
+            var body=document.body||{};
+            return Object.assign({
+                page_type: body.dataset ? (body.dataset.pageType || 'unknown') : 'unknown',
+                content_group: body.dataset ? (body.dataset.contentGroup || 'unknown') : 'unknown',
+                article_slug: body.dataset ? (body.dataset.articleSlug || '') : '',
+                article_title: body.dataset ? (body.dataset.articleTitle || '') : '',
+                article_author: body.dataset ? (body.dataset.articleAuthor || '') : '',
+                publish_date: body.dataset ? (body.dataset.publishDate || '') : '',
+                read_count: body.dataset ? Number(body.dataset.readCount || 0) : 0
+            }, extra || {});
+        }
         document.addEventListener('click', function(e){
             var link = e.target && e.target.closest ? e.target.closest('a.cta-link') : null;
             if (!link) return;
-            try { if(window.dataLayer) window.dataLayer.push({event:'post_cta_click'}); } catch(e){}
-            try { if(typeof window.gtag==='function'&&window.GADS_SEND_TO_CTA) window.gtag('event','conversion',{send_to:window.GADS_SEND_TO_CTA}); } catch(e){}
-        }, true);
+            try { if(window.dataLayer) window.dataLayer.push(pdPageContext({event:'post_cta_click', contact_method:'post_cta'})); } catch(e){}        }, true);
     })();
     </script>
+${WEB_VITALS_SCRIPT}
+${CONSENT_BANNER_HTML}
+${CONSENT_BANNER_SCRIPT}
 </body>
 </html>`;
 }
@@ -445,13 +845,13 @@ function generateIndexHTML(posts) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data-gedreven Marketing Inzichten | PaperDigits</title>
     <meta name="description" content="Geen marketing fluff, wel concrete resultaten. Data-gedreven inzichten voor SEO en digital marketing die écht werken. Van kleine bedrijven tot enterprise.">
-    <link rel="canonical" href="https://paperdigits.nl/blog/">
+    <link rel="canonical" href="https://pages.paperdigits.nl/">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Blog Overzicht | Data-gedreven Marketing Inzichten | PaperDigits">
     <meta property="og:description" content="Geen marketing fluff, wel concrete resultaten. Data-gedreven inzichten voor SEO en digital marketing die écht werken. Van kleine bedrijven tot enterprise.">
     <meta property="og:image" content="https://paperdigits.nl/wp-content/uploads/2025/01/blog-overview-og.jpg">
-    <meta property="og:url" content="https://paperdigits.nl/blog/">
+    <meta property="og:url" content="https://pages.paperdigits.nl/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="PaperDigits">
     
@@ -461,6 +861,15 @@ function generateIndexHTML(posts) {
     <meta name="twitter:description" content="Geen marketing fluff, wel concrete resultaten. Data-gedreven inzichten voor SEO en digital marketing die écht werken. Van kleine bedrijven tot enterprise.">
     <meta name="twitter:image" content="https://paperdigits.nl/wp-content/uploads/2025/01/blog-overview-og.jpg">
     
+${CONSENT_MODE_BOOTSTRAP}
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N834FBSV');</script>
+    <!-- End Google Tag Manager -->
+
     <link rel="stylesheet" href="styles.css?v=0">
     
     <!-- Structured Data (Schema Markup) -->
@@ -470,7 +879,7 @@ function generateIndexHTML(posts) {
       "@type": "Blog",
       "name": "PaperDigits Blog",
       "description": "Digital Marketing inzichten voor ambitieuze bedrijven en marketeers",
-      "url": "https://paperdigits.nl/blog/",
+      "url": "https://pages.paperdigits.nl/",
       "publisher": {
         "@type": "Organization",
         "name": "PaperDigits",
@@ -506,7 +915,11 @@ function generateIndexHTML(posts) {
     </script>
     <script src="posts.js?v=0"></script>
 </head>
-<body>
+<body data-page-type="overview" data-content-group="blog" data-article-slug="" data-article-title="" data-article-author="" data-publish-date="" data-read-count="0">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N834FBSV"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <header class="header">
         <div class="header__container">
             <a class="header__logo" href="https://paperdigits.nl/">
@@ -1061,7 +1474,7 @@ function generateIndexHTML(posts) {
                 "@type": "BlogPosting",
                 "headline": post.title,
                 "description": post.description,
-                "url": \`https://paperdigits.nl/blog/\${post.id}/\`,
+                "url": \`https://pages.paperdigits.nl/\${post.id}/\`,
                 "datePublished": post.date,
                 "author": { "@type": "Person", "name": post.author }
             }));
@@ -1072,7 +1485,7 @@ function generateIndexHTML(posts) {
                 "itemListElement": blogPosts.map((post, index) => ({
                     "@type": "ListItem",
                     "position": index + 1,
-                    "url": \`https://paperdigits.nl/blog/\${post.id}/\`
+                    "url": \`https://pages.paperdigits.nl/\${post.id}/\`
                 }))
             };
 
@@ -1153,34 +1566,51 @@ function generateIndexHTML(posts) {
     </div>
     <script>
     (function(){
+        function pdPageContext(extra){
+            var body=document.body||{};
+            return Object.assign({
+                page_type: body.dataset ? (body.dataset.pageType || 'unknown') : 'unknown',
+                content_group: body.dataset ? (body.dataset.contentGroup || 'unknown') : 'unknown',
+                article_slug: body.dataset ? (body.dataset.articleSlug || '') : '',
+                article_title: body.dataset ? (body.dataset.articleTitle || '') : ''
+            }, extra || {});
+        }
         var KEY='pd_sticky_dismissed',DAYS=7;
         var bar=document.getElementById('pd-sticky-bar');
         if(!bar)return;
         try{var v=localStorage.getItem(KEY);if(v&&Date.now()<parseInt(v,10))return;}catch(e){}
         setTimeout(function(){
             bar.classList.add('is-visible');
-            try{if(window.dataLayer)window.dataLayer.push({event:'sticky_cta_view'});}catch(e){}
+            try{if(window.dataLayer)window.dataLayer.push(pdPageContext({event:'sticky_cta_view', contact_method:'sticky_cta'}));}catch(e){}
         },5000);
         document.getElementById('pd-sticky-bar__close').addEventListener('click',function(){
             bar.classList.remove('is-visible');
-            try{localStorage.setItem(KEY,Date.now()+DAYS*86400000);if(window.dataLayer)window.dataLayer.push({event:'sticky_cta_dismiss'});}catch(e){}
+            try{localStorage.setItem(KEY,Date.now()+DAYS*86400000);if(window.dataLayer)window.dataLayer.push(pdPageContext({event:'sticky_cta_dismiss'}));}catch(e){}
         });
         document.getElementById('pd-sticky-bar__btn').addEventListener('click',function(){
-            try{if(window.dataLayer)window.dataLayer.push({event:'sticky_cta_click'});}catch(e){}
-            try{if(typeof window.gtag==='function'&&window.GADS_SEND_TO_CTA)window.gtag('event','conversion',{send_to:window.GADS_SEND_TO_CTA});}catch(e){}
-        });
+            try{if(window.dataLayer)window.dataLayer.push(pdPageContext({event:'sticky_cta_click', contact_method:'sticky_cta'}));}catch(e){}        });
     })();
     </script>
     <script>
     (function(){
+        function pdPageContext(extra){
+            var body=document.body||{};
+            return Object.assign({
+                page_type: body.dataset ? (body.dataset.pageType || 'unknown') : 'unknown',
+                content_group: body.dataset ? (body.dataset.contentGroup || 'unknown') : 'unknown',
+                article_slug: body.dataset ? (body.dataset.articleSlug || '') : '',
+                article_title: body.dataset ? (body.dataset.articleTitle || '') : ''
+            }, extra || {});
+        }
         document.addEventListener('click', function(e){
             var link = e.target && e.target.closest ? e.target.closest('a.cta-link') : null;
             if (!link) return;
-            try { if(window.dataLayer) window.dataLayer.push({event:'post_cta_click'}); } catch(e){}
-            try { if(typeof window.gtag==='function'&&window.GADS_SEND_TO_CTA) window.gtag('event','conversion',{send_to:window.GADS_SEND_TO_CTA}); } catch(e){}
-        }, true);
+            try { if(window.dataLayer) window.dataLayer.push(pdPageContext({event:'post_cta_click', contact_method:'post_cta'})); } catch(e){}        }, true);
     })();
     </script>
+${WEB_VITALS_SCRIPT}
+${CONSENT_BANNER_HTML}
+${CONSENT_BANNER_SCRIPT}
 </body>
 </html>`;
 }
@@ -1372,10 +1802,18 @@ async function exportStatic() {
                         // Fix relative paths in the copied file
                         let content = fs.readFileSync(destFile, 'utf8');
                         let changed = false;
+                        const postMeta = slugToPost.get(slug) || {};
                         
                         // Fix CSS path
                         if (content.includes('href="../styles.css"')) {
                             content = content.replace('href="../styles.css"', 'href="/styles.css"');
+                            changed = true;
+                        }
+
+                        // Ensure body carries consistent page context for GTM / GA4
+                        const bodyAttrs = `<body data-page-type="article" data-content-group="${(postMeta.category || 'unknown').replace(/"/g, '&quot;')}" data-article-slug="${slug}" data-article-title="${(postMeta.title || '').replace(/"/g, '&quot;')}" data-article-author="${(postMeta.author || '').replace(/"/g, '&quot;')}" data-publish-date="${(postMeta.date || '').replace(/"/g, '&quot;')}" data-read-count="${postMeta.readCount || 0}">`;
+                        if (content.includes('<body>')) {
+                            content = content.replace('<body>', bodyAttrs);
                             changed = true;
                         }
                         
@@ -1416,6 +1854,30 @@ async function exportStatic() {
                             }
                         } catch (e) {
                             console.warn(`⚠️  FAQ placeholder cleanup failed for ${entry.name}:`, e.message);
+                        }
+
+                        // Push consistent page context into the dataLayer so GTM can populate GA4 custom dimensions
+                        if (!content.includes("event:'page_context'")) {
+                            const pageContextScript = `
+    <script>
+    (function(){
+        function pdPageContext(extra){
+            var body=document.body||{};
+            return Object.assign({
+                page_type: body.dataset ? (body.dataset.pageType || 'unknown') : 'unknown',
+                content_group: body.dataset ? (body.dataset.contentGroup || 'unknown') : 'unknown',
+                article_slug: body.dataset ? (body.dataset.articleSlug || '') : '',
+                article_title: body.dataset ? (body.dataset.articleTitle || '') : '',
+                article_author: body.dataset ? (body.dataset.articleAuthor || '') : '',
+                publish_date: body.dataset ? (body.dataset.publishDate || '') : '',
+                read_count: body.dataset ? Number(body.dataset.readCount || 0) : 0
+            }, extra || {});
+        }
+        try{window.dataLayer=window.dataLayer||[];window.dataLayer.push(pdPageContext({event:'page_context'}));}catch(e){}
+    })();
+    </script>`;
+                            content = content.replace('</body>', `${pageContextScript}\n</body>`);
+                            changed = true;
                         }
 
                         // Ensure structural placement: move reviews/about sections inside the article wrapper
@@ -1502,26 +1964,27 @@ async function exportStatic() {
                             }
                         }
 
-                        // Inject subtle CTA before the 2nd H2 in the main post content
+                        // Inject one subtle CTA before the 2nd H2 in the main post content
                         try {
                             const ctaHtml = `\n                <div class="post-cta">\n                    <a class="cta-link" href="https://paperdigits.nl/contact/" target="_blank" rel="noopener">Contact opnemen</a>\n                </div>\n`;
 
-                            // Locate post-content wrapper and split by H2s inside it only
+                            // First remove any existing post CTA blocks anywhere in the article export
+                            const ctaBlockRegex = /\n?\s*<div class=\"post-cta\">[\s\S]*?<\/div>\n?/g;
+                            const withoutExistingCtas = content.replace(ctaBlockRegex, '');
+                            if (withoutExistingCtas !== content) {
+                                content = withoutExistingCtas;
+                                changed = true;
+                            }
+
+                            // Find the main post content section and inject a single CTA there
                             const postContentStart = content.indexOf('<div class="post-content">');
-                            const postContentEnd = content.indexOf('</div>', postContentStart);
+                            const relatedStart = content.indexOf('<section class="related-posts"', postContentStart);
+                            const postContentEnd = relatedStart !== -1 ? relatedStart : content.indexOf('</div>', postContentStart);
                             if (postContentStart !== -1 && postContentEnd !== -1 && postContentEnd > postContentStart) {
                                 const before = content.slice(0, postContentStart);
-                                let inside = content.slice(postContentStart, postContentEnd);
+                                const inside = content.slice(postContentStart, postContentEnd);
                                 const after = content.slice(postContentEnd);
 
-                                // Remove any existing CTA inside post-content to avoid duplicates
-                                const ctaBlockRegex = /\n?\s*<div class=\"post-cta\">[\s\S]*?<\/div>\n?/g;
-                                if (ctaBlockRegex.test(inside)) {
-                                    inside = inside.replace(ctaBlockRegex, '');
-                                    changed = true;
-                                }
-
-                                // Count H2 occurrences and insert before the second one
                                 let h2Count = 0;
                                 const h2Regex = /<h2\b[^>]*>/g;
                                 let match; let insertIdx = -1;
@@ -1534,15 +1997,12 @@ async function exportStatic() {
                                 }
 
                                 if (insertIdx !== -1) {
-                                    const newInside = inside.slice(0, insertIdx) + ctaHtml + inside.slice(insertIdx);
-                                    content = before + newInside + after;
+                                    content = before + inside.slice(0, insertIdx) + ctaHtml + inside.slice(insertIdx) + after;
                                     changed = true;
                                 } else {
-                                    // Fallback: if fewer than 2 H2s, put CTA after intro paragraph inside post-content
                                     const introClose = inside.indexOf('</p>');
                                     if (introClose !== -1) {
-                                        const newInside = inside.slice(0, introClose + 4) + ctaHtml + inside.slice(introClose + 4);
-                                        content = before + newInside + after;
+                                        content = before + inside.slice(0, introClose + 4) + ctaHtml + inside.slice(introClose + 4) + after;
                                         changed = true;
                                     }
                                 }
@@ -1814,7 +2274,7 @@ async function exportStatic() {
         fs.writeFileSync(indexPath, indexContent, 'utf8');
         console.log(`✅ Updated cache busting on index to v=${cacheVersion}`);
 
-        // Also update styles.css reference on all exported post pages for cache busting
+        // Also update styles.css reference and inject GA4 on all exported post pages
         try {
             const postsRoot = path.join(config.outputDir, 'posts');
             if (fs.existsSync(postsRoot)) {
@@ -1827,14 +2287,27 @@ async function exportStatic() {
                     // Normalize any styles.css link to include the cache param
                     html = html.replace(/href=["']\/?styles\.css["']/g, `href="/styles.css?v=${cacheVersion}"`);
                     html = html.replace(/href=["']\/?styles\.css\?v=[\d-]+["']/g, `href="/styles.css?v=${cacheVersion}"`);
+                    // Ensure consent bootstrap is present before GTM
+                    if (!html.includes("pd_cookie_consent_v1")) {
+                        html = html.replace('</head>', `${CONSENT_MODE_BOOTSTRAP}\n</head>`);
+                    }
+                    // Ensure GTM is present on all exported post pages
+                    if (!html.includes('GTM-N834FBSV')) {
+                        html = html.replace('</head>', `    <!-- Google Tag Manager -->\n    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\n    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\n    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n    })(window,document,'script','dataLayer','GTM-N834FBSV');</script>\n    <!-- End Google Tag Manager -->\n</head>`);
+                        html = html.replace('<body>', `<body>\n    <!-- Google Tag Manager (noscript) -->\n    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N834FBSV"\n    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\n    <!-- End Google Tag Manager (noscript) -->`);
+                    }
+                    // Ensure consent banner + settings reopen UI is present on all exported post pages
+                    if (!html.includes('id="pd-consent"')) {
+                        html = html.replace('</body>', `${WEB_VITALS_SCRIPT}\\n${CONSENT_BANNER_HTML}\\n${CONSENT_BANNER_SCRIPT}\\n</body>`);
+                    }
                     if (html !== before) {
                         fs.writeFileSync(f, html, 'utf8');
                     }
                 }
-                console.log('✅ Updated CSS cache busting on all post pages');
+                console.log('✅ Updated CSS cache busting and GA4 on all post pages');
             }
         } catch (e) {
-            console.warn('⚠️  Failed updating cache busting on post pages:', e.message);
+            console.warn('⚠️  Failed updating exported post pages:', e.message);
         }
         
         // Generate data files for the index.html
@@ -2039,3 +2512,9 @@ urlEntries.join('\n') +
 
 // Run export
 exportStatic();
+
+
+
+
+
+

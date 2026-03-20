@@ -12,7 +12,7 @@ headline3: Minder Unassigned verkeer
 category: Analytics
 author: Wouter Naber
 date: 10 maart 2026
-readCount: 0
+readCount: 377
 heroImage: images/channel-grouping-ga4.jpg
 heroImageAlt: Channel grouping in GA4 voor duidelijke kanaalrapportage
 ---

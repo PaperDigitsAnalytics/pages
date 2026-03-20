@@ -12,7 +12,7 @@ headline3: Minder gaten in UET
 category: Google Tag Manager
 author: Wouter Naber
 date: 10 maart 2026
-readCount: 0
+readCount: 245
 heroImage: images/Hetportretbureau_LR__T1A1116.jpg
 heroImageAlt: Microsoft Ads UET-tag instellen via Google Tag Manager
 ---

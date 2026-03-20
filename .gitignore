@@ -41,3 +41,18 @@ ftp-config.json
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Local secrets / credentials
+secrets/
+*.json
+!package.json
+!package-lock.json
+!content-clusters.json
+!content-machine-manifest.json
+!content-topics.json
+!nightly-content.config.json
+!.mcp.json
+
+# BigQuery / Google Cloud secrets (explicit)
+big-button-*.json
+client_secret_*.json

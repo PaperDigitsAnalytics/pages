@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brancherapport technische industrie | PaperDigits</title>
+    <meta name="description" content="Hoe technische en industriële bedrijven digitaal presteren, en waar de interessante vergelijking meestal niet op merk begint.">
+    <link rel="canonical" href="https://pages.paperdigits.nl/report/brancherapport-technische-industrie/">
+
+    <meta property="og:title" content="Brancherapport technische industrie">
+    <meta property="og:description" content="Hoe technische en industriële bedrijven digitaal presteren, en waar de interessante vergelijking meestal niet op merk begint.">
+    <meta property="og:image" content="https://pages.paperdigits.nl/images-pages/businessman-tablet-financial-data-charts.jpg">
+    <meta property="og:url" content="https://pages.paperdigits.nl/report/brancherapport-technische-industrie/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="PaperDigits">
+
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .report-chart {
+            margin: 2rem 0 2.5rem;
+        }
+        .report-chart-title {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #5f6b7a;
+            margin-bottom: 1rem;
+        }
+        .report-bar-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        .report-bar-row {
+            display: grid;
+            grid-template-columns: 110px 1fr 44px;
+            gap: 0.75rem;
+            align-items: center;
+        }
+        .report-bar-label,
+        .report-bar-value {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: #1f2a37;
+        }
+        .report-bar-value {
+            text-align: right;
+            font-weight: 600;
+        }
+        .report-bar-track {
+            height: 10px;
+            background: #e8edf3;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+        .report-bar-fill {
+            height: 100%;
+            border-radius: 999px;
+        }
+        .report-bar-fill.performance { width: 49%; background: #d97706; }
+        .report-bar-fill.accessibility { width: 82%; background: #2563eb; }
+        .report-bar-fill.best-practices { width: 100%; background: #059669; }
+        .report-bar-fill.seo { width: 85%; background: #0f766e; }
+        .report-compare-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 0.95rem;
+            line-height: 1.45;
+            overflow: hidden;
+            border: 1px solid #e8edf3;
+            border-radius: 12px;
+        }
+        .report-compare-table th,
+        .report-compare-table td {
+            padding: 0.7rem 0.5rem;
+            border-bottom: 1px solid #e8edf3;
+            text-align: left;
+            vertical-align: middle;
+        }
+        .report-compare-table tr:last-child td {
+            border-bottom: 0;
+        }
+        .report-compare-table th {
+            font-weight: 600;
+            color: #5f6b7a;
+            background: #f8fafc;
+        }
+        .report-compare-table td strong {
+            font-weight: 600;
+            color: #1f2a37;
+        }
+        .score-bad,
+        .score-mid,
+        .score-good {
+            display: inline-block;
+            min-width: 2.2rem;
+            text-align: center;
+            padding: 0.2rem 0.45rem;
+            border-radius: 999px;
+            font-weight: 600;
+        }
+        .score-bad {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+        .score-mid {
+            background: #ffedd5;
+            color: #c2410c;
+        }
+        .score-good {
+            background: #dcfce7;
+            color: #15803d;
+        }
+        @media (max-width: 640px) {
+            .report-bar-row {
+                grid-template-columns: 84px 1fr 36px;
+                gap: 0.6rem;
+            }
+            .report-bar-label,
+            .report-bar-value,
+            .report-chart-title,
+            .report-compare-table {
+                font-size: 0.9rem;
+            }
+            .report-compare-table th,
+            .report-compare-table td {
+                padding: 0.55rem 0.35rem;
+            }
+            .score-bad,
+            .score-mid,
+            .score-good {
+                min-width: 1.9rem;
+                padding: 0.15rem 0.35rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <a class="header__logo" href="https://paperdigits.nl/"><img src="../images/logo/PaperDigits_logo.png" alt="PaperDigits - Performance Marketing Agency" class="logo-image"></a>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span class="hamburger__line"></span>
+                <span class="hamburger__line"></span>
+                <span class="hamburger__line"></span>
+            </button>
+            <nav class="header__nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="https://paperdigits.nl/services/" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="https://paperdigits.nl/technologie/" class="nav__link">Technologie</a></li>
+                    <li class="nav__item"><a href="https://paperdigits.nl/stories/" class="nav__link">Stories</a></li>
+                    <li class="nav__item"><a href="https://paperdigits.nl/vacatures/" class="nav__link">Vacatures</a></li>
+                    <li class="nav__item"><a href="https://paperdigits.nl/contact/" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <article class="blog-post">
+            <header class="post-header">
+                <h1 class="post-title">Brancherapport technische industrie</h1>
+            </header>
+
+            <div class="post-content">
+                <p class="post-intro">In deze branche ziet digital marketing er vaak rustiger uit dan die werkelijk is.</p>
+
+                <div class="post-meta">
+                    <div class="meta inner-column flex fl">
+                        <div class="flex meta-item meta-author">
+                            <img src="../images/writers/Wouter Naber.jpg" alt="Auteur" class="avatar-img" loading="lazy">
+                            <span class="author-name">Wouter Naber</span>
+                        </div>
+                        <div class="flex fl meta-other">
+                            <span class="meta-item">16 maart 2026</span>
+                            <span class="meta-item">rapport</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <img src="../uploads/header-1741516800000-583247190-desktop.jpg"
+                         alt="Brancherapport technische industrie"
+                         class="hero-img"
+                         loading="eager">
+                </div>
+
+                <p>In deze branche oogt digital marketing vaak stabieler dan de ervaring op de site werkelijk ondersteunt.</p>
+
+                <p>De interessante vergelijking begint meestal niet op merk, maar op de momenten daarvoor. Juist daar wordt zichtbaar hoe sterk je digitale basis echt is.</p>
+
+                <h2>Het eerste signaal zit niet in SEO of best practices, maar in performance</h2>
+
+                <p>Een eerste Lighthouse-scan binnen deze branche laat een herkenbaar beeld zien: accessibility, best practices en SEO kunnen redelijk op orde zijn, terwijl performance toch duidelijk achterblijft.</p>
+
+                <div class="report-chart" aria-label="Lighthouse scores van eriks.nl en concurrenten">
+                    <p class="report-chart-title">Lighthouse-scan van een speler in deze branche</p>
+                    <table class="report-compare-table" aria-label="Vergelijking Lighthouse scores met concurrenten">
+                        <thead>
+                            <tr>
+                                <th>Site</th>
+                                <th>Perf.</th>
+                                <th>Acc.</th>
+                                <th>BP</th>
+                                <th>SEO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>ERIKS</strong></td>
+                                <td><span class="score-mid">49</span></td>
+                                <td><span class="score-good">82</span></td>
+                                <td><span class="score-good">100</span></td>
+                                <td><span class="score-good">85</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fabory</strong></td>
+                                <td><span class="score-bad">27</span></td>
+                                <td><span class="score-mid">78</span></td>
+                                <td><span class="score-bad">58</span></td>
+                                <td><span class="score-good">92</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>RS Online</strong></td>
+                                <td><span class="score-mid">54</span></td>
+                                <td><span class="score-good">92</span></td>
+                                <td><span class="score-good">100</span></td>
+                                <td><span class="score-good">85</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>MCB</strong></td>
+                                <td><span class="score-bad">25</span></td>
+                                <td><span class="score-mid">70</span></td>
+                                <td><span class="score-mid">69</span></td>
+                                <td><span class="score-good">83</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>De performance-score komt hier uit op 49. Het scherpste signaal daarbinnen is een Largest Contentful Paint van 27.9 seconden. Daarmee valt snelheid duidelijk uit de toon ten opzichte van de rest.</p>
+
+                <p>Precies dat maakt dit een bruikbaar eerste branche-inzicht: niet alles hoeft zwak te zijn om performance toch een rem op de ervaring te laten worden.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__row">
+            <nav class="footer__nav">
+                <ul class="footer__list footer__list--main">
+                    <li class="footer__item footer-heading"><div class="footer__text-container"><a class="footer__link" href="https://paperdigits.nl/services/"><span class="footer__text">Services</span></a></div></li>
+                    <li class="footer__item footer-heading"><div class="footer__text-container"><a class="footer__link" href="https://paperdigits.nl/stories/"><span class="footer__text">Stories</span></a></div></li>
+                    <li class="footer__item footer-heading"><div class="footer__text-container"><a class="footer__link" href="https://paperdigits.nl/technologie/"><span class="footer__text">Technologie</span></a></div></li>
+                    <li class="footer__item footer-heading"><div class="footer__text-container"><a class="footer__link" href="https://paperdigits.nl/vacatures/"><span class="footer__text">Vacatures</span></a></div></li>
+                    <li class="footer__item footer-heading"><div class="footer__text-container"><a class="footer__link" href="https://paperdigits.nl/contact/"><span class="footer__text">Contact</span></a></div></li>
+                </ul>
+                <div class="footer__contact">
+                    <p class="small-body font-bold">Contactgegevens</p>
+                    <div class="p small-body">
+                        <p>Noorderstraat 1Q,<br>1823 CS Alkmaar</p>
+                        <p><a href="tel:+31722340777">+31 (0)72 234 0777</a><br><a href="mailto:info@paperdigits.nl">info@paperdigits.nl</a></p>
+                    </div>
+                </div>
+                <div class="footer__contact-button">
+                    <a href="https://paperdigits.nl/contact/" rel="noopener" class="button medium-body button--anchor background--dark color--light has-dot">
+                        <span class="button__text">Contact opnemen</span>
+                        <span class="button-dot color--psea"></span>
+                    </a>
+                </div>
+            </nav>
+            <div class="footer__bottom">
+                <div class="footer__bottom-left">
+                    <div class="footer__legal-nav">
+                        <ul class="footer__list footer__list--legal">
+                            <li class="footer__item xsmall-body color--psea"><div class="footer__text-container"><a class="footer__link" href="https://paperdigits.nl/privacybeleid/"><span class="footer__text">Privacybeleid</span></a></div></li>
+                            <li class="footer__item xsmall-body color--psea"><div class="footer__text-container"><a class="footer__link" href="https://paperdigits.nl/cookiebeleid/"><span class="footer__text">Cookiebeleid</span></a></div></li>
+                        </ul>
+                        <p class="footer__copyright xsmall-body">Copyright ©2026 PaperDigits</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('.header__nav');
+        if (hamburger && nav) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('is-active');
+                nav.classList.toggle('is-open');
+            });
+        }
+    </script>
+</body>
+</html>

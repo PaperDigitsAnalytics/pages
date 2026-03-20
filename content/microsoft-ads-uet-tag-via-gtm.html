@@ -16,13 +16,6 @@
 
     <link rel="stylesheet" href="../styles.css">
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11476910514"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-11476910514');
-    </script>
 
     <script type="application/ld+json">
     {
@@ -54,11 +47,6 @@
     <!-- FAQ Schema -->
     <script type="application/ld+json">
     {{faq_structured_data}}
-    </script>
-    <script>
-    window.GADS_SEND_TO = 'AW-11476910514/8heqCIDBwKAbELKDz-Aq';
-    window.GADS_SEND_TO_VIEW = 'AW-11476910514/-6THCNK6waAbELKDz-Aq';
-    window.GADS_SEND_TO_CTA = 'AW-11476910514/zc8tCKbG8IUcELKDz-Aq';
     </script>
 </head>
 <body>
@@ -99,7 +87,7 @@
                         </div>
                         <div class="flex fl meta-other">
                             <span class="meta-item">10 maart 2026</span>
-                            <span class="meta-item">0 x gelezen</span>
+                            <span class="meta-item">245 x gelezen</span>
                         </div>
                     </div>
                 </div>
@@ -246,14 +234,14 @@
     </script>
     <script>
         (function(){
-            function fire(){ try { if(window.dataLayer) window.dataLayer.push({event:'whatsapp_click'}); if(typeof window.gtag==='function'&&window.GADS_SEND_TO) window.gtag('event','conversion',{send_to:window.GADS_SEND_TO}); if(typeof window.gtag==='function'&&window.GADS_SEND_TO_CTA) window.gtag('event','conversion',{send_to:window.GADS_SEND_TO_CTA}); } catch(e){} }
+            function fire(){ try { if(window.dataLayer) window.dataLayer.push({event:'whatsapp_click'}); } catch(e){} }
             document.addEventListener('click',function(e){ var b=e.target&&e.target.closest?e.target.closest('a.whatsapp-button'):null; if(!b)return; fire(); },true);
         })();
     </script>
     <script>
         (function(){
             var fired=false;
-            function fireView(){ if(fired)return; fired=true; try{ if(window.dataLayer) window.dataLayer.push({event:'whatsapp_view'}); if(typeof window.gtag==='function'&&window.GADS_SEND_TO_VIEW) window.gtag('event','conversion',{send_to:window.GADS_SEND_TO_VIEW}); }catch(e){} }
+            function fireView(){ if(fired)return; fired=true; try{ if(window.dataLayer) window.dataLayer.push({event:'whatsapp_view'}); }catch(e){} }
             function observe(){ var b=document.querySelector('a.whatsapp-button'); if(!b)return; if(!('IntersectionObserver' in window)){fireView();return;} var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting&&e.intersectionRatio>0){fireView();io.disconnect();}});},{root:null,threshold:[0,0.01]}); io.observe(b); }
             if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',observe); else observe();
         })();
@@ -295,7 +283,7 @@
         });
         document.getElementById('pd-sticky-bar__btn').addEventListener('click',function(){
             try{if(window.dataLayer)window.dataLayer.push({event:'sticky_cta_click'});}catch(e){}
-            try{if(typeof window.gtag==='function'&&window.GADS_SEND_TO_CTA)window.gtag('event','conversion',{send_to:window.GADS_SEND_TO_CTA});}catch(e){}
+
         });
     })();
     </script>
@@ -305,7 +293,7 @@
             var link = e.target && e.target.closest ? e.target.closest('a.cta-link') : null;
             if (!link) return;
             try { if(window.dataLayer) window.dataLayer.push({event:'post_cta_click'}); } catch(ex){}
-            try { if(typeof window.gtag==='function'&&window.GADS_SEND_TO_CTA) window.gtag('event','conversion',{send_to:window.GADS_SEND_TO_CTA}); } catch(ex){}
+
         }, true);
     })();
     </script>

@@ -12,7 +12,7 @@ headline3: Minder losse exports
 category: Analytics
 author: Wouter Naber
 date: 10 maart 2026
-readCount: 0
+readCount: 441
 heroImage: images/Hetportretbureau_LR__T1A1116.jpg
 heroImageAlt: BigQuery voor kanaalsturing met CRM-data
 ---

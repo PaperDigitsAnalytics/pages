@@ -12,7 +12,7 @@ headline3: Meet retargeting beter
 category: Google Tag Manager
 author: Wouter Naber
 date: 10 maart 2026
-readCount: 0
+readCount: 375
 heroImage: images/Hetportretbureau_LR__T1A1116.jpg
 heroImageAlt: Pinterest Tag instellen via Google Tag Manager
 ---

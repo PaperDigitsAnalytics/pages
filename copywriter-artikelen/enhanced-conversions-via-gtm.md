@@ -12,7 +12,7 @@ headline3: Minder gaten in Ads-data
 category: Google Tag Manager
 author: Wouter Naber
 date: 10 maart 2026
-readCount: 0
+readCount: 318
 heroImage: images/Hetportretbureau_LR__T1A1116.jpg
 heroImageAlt: Enhanced conversions instellen via Google Tag Manager
 ---

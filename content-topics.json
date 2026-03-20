@@ -1,90 +1,522 @@
 [
   {
-    "slug": "enhanced-conversions-via-gtm-inrichten",
-    "title": "Enhanced Conversions via GTM Inrichten",
-    "category": "Google Tag Manager",
-    "keywords": [
-      "enhanced conversions",
-      "google ads conversies",
-      "first-party data"
-    ],
-    "status": "scaffolded",
-    "img": "google-logo-iphone-desk.jpg",
-    "readCount": 0,
-    "ts": 1773156367123,
-    "id": 784355639,
-    "related": [
-      ["enhanced-conversions-via-gtm", "Enhanced Conversions via GTM"],
-      ["google-ads-tracking-via-gtm", "Google Ads tracking via GTM"],
-      ["google-tag-manager-vs-gtagjs", "Google Tag Manager vs. gtag.js"],
-      ["gtm-voor-shopify", "GTM voor Shopify"],
-      ["cross-domain-tracking", "Cross-domain tracking"]
-    ]
-  },
-  {
-    "slug": "ga4-custom-channel-groups",
-    "title": "GA4 custom channel groups instellen",
+    "slug": "bigquery-koppelen-aan-ga4",
+    "title": "BigQuery koppelen aan GA4",
     "category": "Analytics",
     "keywords": [
-      "ga4 custom channel groups",
-      "channel groups ga4",
-      "kanaalrapportage"
+      "bigquery koppelen aan ga4",
+      "bigquery koppelen",
+      "bigquery koppelen aan"
     ],
     "status": "scaffolded",
+    "cluster": "analytics-ga4",
+    "duplicateRisk": 0.222,
+    "nearestExisting": "formuliertracking-in-ga4-zonder-developers",
+    "pipelineScore": 23,
     "img": "google-analytics-user-retention-cohort-heatmap.jpg",
-    "readCount": 0,
-    "ts": 1773156782151,
-    "id": 925531057,
+    "ts": 1773751149560,
+    "id": 620345601,
     "related": [
-      ["attributie-in-ga4-wat-kun-je-nog-vertrouwen", "Attributie in GA4: wat kun je nog vertrouwen?"],
-      ["bigquery-contribution-analysis-voor-campagneveranderingen", "BigQuery contribution analysis voor campagneveranderingen"],
-      ["bigquery-forecasting-voor-marketingplanning", "BigQuery forecasting voor marketingplanning"],
-      ["bigquery-koppelen-aan-ga4", "BigQuery koppelen aan GA4"],
-      ["bigquery-ml-voor-customer-segmentatie", "BigQuery ML voor customer segmentatie"]
+      [
+        "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+        "Attributie in GA4: wat kun je nog vertrouwen?"
+      ],
+      [
+        "bigquery-contribution-analysis-voor-campagneveranderingen",
+        "BigQuery contribution analysis voor campagneveranderingen"
+      ],
+      [
+        "bigquery-forecasting-voor-marketingplanning",
+        "BigQuery forecasting voor marketingplanning"
+      ],
+      [
+        "bigquery-ml-voor-customer-segmentatie",
+        "BigQuery ML voor customer segmentatie"
+      ],
+      [
+        "bigquery-ml-voor-klantwaarde-en-koopkans",
+        "BigQuery ML voor klantwaarde en koopkans"
+      ]
     ]
   },
   {
-    "slug": "consent-mode-v2-via-gtm",
-    "title": "Consent Mode v2 via GTM instellen",
-    "category": "Google Tag Manager",
-    "keywords": [
-      "consent mode v2",
-      "gtm consent mode",
-      "google consent mode"
-    ],
-    "status": "scaffolded",
-    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
-    "readCount": 0,
-    "ts": 1773156782158,
-    "id": 501740961,
-    "related": [
-      ["google-consent-mode-v2-verplicht-n-urgent", "Google Consent Mode v2: verplicht én urgent"],
-      ["cross-domain-tracking", "Cross-domain tracking"],
-      ["e-commerce-tracking-via-gtm", "E-commerce tracking via GTM"],
-      ["enhanced-conversions-via-gtm", "Enhanced Conversions via GTM"],
-      ["google-ads-tracking-via-gtm", "Google Ads tracking via GTM"]
-    ]
-  },
-  {
-    "slug": "ga4-utm-structuur-opzetten",
-    "title": "GA4 UTM-structuur opzetten",
+    "slug": "formuliertracking-in-ga4-zonder-developers",
+    "title": "Formuliertracking in GA4 zonder developers",
     "category": "Analytics",
     "keywords": [
-      "utm structuur",
-      "ga4 utm tagging",
-      "campagne tagging"
+      "formuliertracking in ga4 zonder developers",
+      "formuliertracking in",
+      "formuliertracking in ga4"
     ],
     "status": "scaffolded",
+    "cluster": "analytics-ga4",
+    "duplicateRisk": 0.333,
+    "nearestExisting": "interne-zoekopdrachten-meten-in-ga4",
+    "pipelineScore": 20,
     "img": "google-analytics-user-retention-cohort-heatmap.jpg",
-    "readCount": 0,
-    "ts": 1773156782163,
-    "id": 707154724,
+    "ts": 1773751149562,
+    "id": 208709731,
     "related": [
-      ["attributie-in-ga4-wat-kun-je-nog-vertrouwen", "Attributie in GA4: wat kun je nog vertrouwen?"],
-      ["bigquery-contribution-analysis-voor-campagneveranderingen", "BigQuery contribution analysis voor campagneveranderingen"],
-      ["bigquery-forecasting-voor-marketingplanning", "BigQuery forecasting voor marketingplanning"],
-      ["bigquery-koppelen-aan-ga4", "BigQuery koppelen aan GA4"],
-      ["bigquery-ml-voor-customer-segmentatie", "BigQuery ML voor customer segmentatie"]
+      [
+        "formuliertracking-ga4-zonder-developers",
+        "Formuliertracking in GA4 zonder developers"
+      ],
+      [
+        "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+        "Attributie in GA4: wat kun je nog vertrouwen?"
+      ],
+      [
+        "bigquery-contribution-analysis-voor-campagneveranderingen",
+        "BigQuery contribution analysis voor campagneveranderingen"
+      ],
+      [
+        "bigquery-forecasting-voor-marketingplanning",
+        "BigQuery forecasting voor marketingplanning"
+      ],
+      [
+        "bigquery-koppelen-aan-ga4",
+        "BigQuery koppelen aan GA4"
+      ]
+    ]
+  },
+  {
+    "slug": "telefonische-leads-meten-in-ga4-en-google-ads",
+    "title": "Telefonische leads meten in GA4 en Google Ads",
+    "category": "Analytics",
+    "keywords": [
+      "telefonische leads meten in ga4 en google ads",
+      "telefonische leads",
+      "telefonische leads meten"
+    ],
+    "status": "scaffolded",
+    "cluster": "analytics-ga4",
+    "duplicateRisk": 0.417,
+    "nearestExisting": "scroll-depth-en-engagement-meten-in-ga4",
+    "pipelineScore": 20,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149574,
+    "id": 165473000,
+    "related": [
+      [
+        "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+        "Attributie in GA4: wat kun je nog vertrouwen?"
+      ],
+      [
+        "bigquery-contribution-analysis-voor-campagneveranderingen",
+        "BigQuery contribution analysis voor campagneveranderingen"
+      ],
+      [
+        "bigquery-forecasting-voor-marketingplanning",
+        "BigQuery forecasting voor marketingplanning"
+      ],
+      [
+        "bigquery-koppelen-aan-ga4",
+        "BigQuery koppelen aan GA4"
+      ],
+      [
+        "bigquery-ml-voor-customer-segmentatie",
+        "BigQuery ML voor customer segmentatie"
+      ]
+    ]
+  },
+  {
+    "slug": "looker-studio-dashboard-bouwen-op-ga4-data",
+    "title": "Looker Studio dashboard bouwen op GA4-data",
+    "category": "Analytics",
+    "keywords": [
+      "looker studio dashboard bouwen op ga4-data",
+      "looker studio",
+      "looker studio dashboard"
+    ],
+    "status": "scaffolded",
+    "cluster": "analytics-ga4",
+    "duplicateRisk": 0.273,
+    "nearestExisting": "ga4-funnels-bouwen-voor-leadgeneratie",
+    "pipelineScore": 20,
+    "img": "google-analytics-active-users-and-revenue-dashboard.jpg",
+    "ts": 1773751149576,
+    "id": 362114292,
+    "related": [
+      [
+        "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+        "Attributie in GA4: wat kun je nog vertrouwen?"
+      ],
+      [
+        "bigquery-contribution-analysis-voor-campagneveranderingen",
+        "BigQuery contribution analysis voor campagneveranderingen"
+      ],
+      [
+        "bigquery-forecasting-voor-marketingplanning",
+        "BigQuery forecasting voor marketingplanning"
+      ],
+      [
+        "bigquery-koppelen-aan-ga4",
+        "BigQuery koppelen aan GA4"
+      ],
+      [
+        "bigquery-ml-voor-customer-segmentatie",
+        "BigQuery ML voor customer segmentatie"
+      ]
+    ]
+  },
+  {
+    "slug": "ga4-debugview-gebruiken-om-implementaties-te-testen",
+    "title": "GA4 DebugView gebruiken om implementaties te testen",
+    "category": "Analytics",
+    "keywords": [
+      "ga4 debugview gebruiken om implementaties te testen",
+      "ga4 debugview",
+      "ga4 debugview gebruiken"
+    ],
+    "status": "scaffolded",
+    "cluster": "analytics-ga4",
+    "duplicateRisk": 0.182,
+    "nearestExisting": "bigquery-koppelen-aan-ga4",
+    "pipelineScore": 20,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149578,
+    "id": 328455768,
+    "related": [
+      [
+        "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+        "Attributie in GA4: wat kun je nog vertrouwen?"
+      ],
+      [
+        "bigquery-contribution-analysis-voor-campagneveranderingen",
+        "BigQuery contribution analysis voor campagneveranderingen"
+      ],
+      [
+        "bigquery-forecasting-voor-marketingplanning",
+        "BigQuery forecasting voor marketingplanning"
+      ],
+      [
+        "bigquery-koppelen-aan-ga4",
+        "BigQuery koppelen aan GA4"
+      ],
+      [
+        "bigquery-ml-voor-customer-segmentatie",
+        "BigQuery ML voor customer segmentatie"
+      ]
+    ]
+  },
+  {
+    "slug": "ga4-funnels-bouwen-voor-leadgeneratie",
+    "title": "GA4 funnels bouwen voor leadgeneratie",
+    "category": "Analytics",
+    "keywords": [
+      "ga4 funnels bouwen voor leadgeneratie",
+      "ga4 funnels",
+      "ga4 funnels bouwen"
+    ],
+    "status": "scaffolded",
+    "cluster": "analytics-ga4",
+    "duplicateRisk": 0.273,
+    "nearestExisting": "looker-studio-dashboard-bouwen-op-ga4-data",
+    "pipelineScore": 20,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149580,
+    "id": 529983150,
+    "related": [
+      [
+        "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+        "Attributie in GA4: wat kun je nog vertrouwen?"
+      ],
+      [
+        "bigquery-contribution-analysis-voor-campagneveranderingen",
+        "BigQuery contribution analysis voor campagneveranderingen"
+      ],
+      [
+        "bigquery-forecasting-voor-marketingplanning",
+        "BigQuery forecasting voor marketingplanning"
+      ],
+      [
+        "bigquery-koppelen-aan-ga4",
+        "BigQuery koppelen aan GA4"
+      ],
+      [
+        "bigquery-ml-voor-customer-segmentatie",
+        "BigQuery ML voor customer segmentatie"
+      ]
+    ]
+  },
+  {
+    "slug": "meting-van-nieuwsbriefinschrijvingen-in-ga4-en-gtm",
+    "title": "Meting van nieuwsbriefinschrijvingen in GA4 en GTM",
+    "category": "Google Tag Manager",
+    "keywords": [
+      "meting van nieuwsbriefinschrijvingen in ga4 en gtm",
+      "meting van",
+      "meting van nieuwsbriefinschrijvingen"
+    ],
+    "status": "review",
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.308,
+    "nearestExisting": "linkedin-insight-tag-via-gtm",
+    "pipelineScore": 20,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149582,
+    "id": 625196339,
+    "related": [
+      [
+        "consent-mode-v2-via-gtm",
+        "Consent Mode v2 via GTM instellen"
+      ],
+      [
+        "cross-domain-tracking",
+        "Cross-domain tracking"
+      ],
+      [
+        "e-commerce-tracking-via-gtm",
+        "E-commerce tracking via GTM"
+      ],
+      [
+        "enhanced-conversions-via-gtm",
+        "Enhanced Conversions via GTM"
+      ],
+      [
+        "enhanced-conversions-via-gtm-inrichten",
+        "Enhanced Conversions via GTM Inrichten"
+      ]
+    ]
+  },
+  {
+    "slug": "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+    "title": "Attributie in GA4: wat kun je nog vertrouwen",
+    "category": "Analytics",
+    "keywords": [
+      "attributie in ga4 wat kun je nog vertrouwen",
+      "attributie in",
+      "attributie in ga4"
+    ],
+    "status": "scaffolded",
+    "cluster": "analytics-ga4",
+    "duplicateRisk": 0.258,
+    "nearestExisting": "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+    "pipelineScore": 19,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149584,
+    "id": 694743507,
+    "related": [
+      [
+        "bigquery-contribution-analysis-voor-campagneveranderingen",
+        "BigQuery contribution analysis voor campagneveranderingen"
+      ],
+      [
+        "bigquery-forecasting-voor-marketingplanning",
+        "BigQuery forecasting voor marketingplanning"
+      ],
+      [
+        "bigquery-koppelen-aan-ga4",
+        "BigQuery koppelen aan GA4"
+      ],
+      [
+        "bigquery-ml-voor-customer-segmentatie",
+        "BigQuery ML voor customer segmentatie"
+      ],
+      [
+        "bigquery-ml-voor-klantwaarde-en-koopkans",
+        "BigQuery ML voor klantwaarde en koopkans"
+      ]
+    ]
+  },
+  {
+    "slug": "waarom-je-marketingdashboard-niemand-gebruikt",
+    "title": "Waarom je marketingdashboard niemand gebruikt",
+    "category": "Analytics",
+    "keywords": [
+      "waarom je marketingdashboard niemand gebruikt",
+      "waarom je",
+      "waarom je marketingdashboard"
+    ],
+    "status": "scaffolded",
+    "cluster": "analytics-ga4",
+    "duplicateRisk": 0.179,
+    "nearestExisting": "waarom-je-marketingdashboard-niemand-gebruikt",
+    "pipelineScore": 18,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149585,
+    "id": 239553522,
+    "related": [
+      [
+        "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+        "Attributie in GA4: wat kun je nog vertrouwen?"
+      ],
+      [
+        "bigquery-contribution-analysis-voor-campagneveranderingen",
+        "BigQuery contribution analysis voor campagneveranderingen"
+      ],
+      [
+        "bigquery-forecasting-voor-marketingplanning",
+        "BigQuery forecasting voor marketingplanning"
+      ],
+      [
+        "bigquery-koppelen-aan-ga4",
+        "BigQuery koppelen aan GA4"
+      ],
+      [
+        "bigquery-ml-voor-customer-segmentatie",
+        "BigQuery ML voor customer segmentatie"
+      ]
+    ]
+  },
+  {
+    "slug": "microsoft-ads-conversietracking-via-gtm",
+    "title": "Microsoft Ads conversietracking via GTM",
+    "category": "Google Tag Manager",
+    "keywords": [
+      "microsoft ads conversietracking via gtm",
+      "microsoft ads conversietracking",
+      "microsoft ads"
+    ],
+    "status": "live",
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.5,
+    "nearestExisting": "linkedin-insight-tag-via-gtm",
+    "pipelineScore": 17,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149586,
+    "id": 551848906,
+    "related": [
+      [
+        "microsoft-ads-uet-tag-via-gtm",
+        "Microsoft Ads UET-tag via GTM"
+      ],
+      [
+        "consent-mode-v2-via-gtm",
+        "Consent Mode v2 via GTM instellen"
+      ],
+      [
+        "cross-domain-tracking",
+        "Cross-domain tracking"
+      ],
+      [
+        "e-commerce-tracking-via-gtm",
+        "E-commerce tracking via GTM"
+      ],
+      [
+        "enhanced-conversions-via-gtm",
+        "Enhanced Conversions via GTM"
+      ]
+    ]
+  },
+  {
+    "slug": "meta-conversion-api-opzetten",
+    "title": "Meta Conversion API opzetten",
+    "category": "Digital Marketing",
+    "keywords": [
+      "meta conversion api opzetten",
+      "meta conversion",
+      "meta conversion api"
+    ],
+    "status": "scaffolded",
+    "cluster": "tracking-infrastructure",
+    "duplicateRisk": 0.273,
+    "nearestExisting": "server-side-tracking-voor-meta-ads",
+    "pipelineScore": 17,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149587,
+    "id": 351368998,
+    "related": [
+      [
+        "meta-conversion-api",
+        "Meta Conversion API opzetten"
+      ],
+      [
+        "bigquery-voor-assortimentsanalyse-in-shopping",
+        "BigQuery voor assortimentsanalyse in Shopping"
+      ],
+      [
+        "bigquery-voor-pricing-in-shopping-campagnes",
+        "BigQuery voor pricing in Shopping campagnes"
+      ],
+      [
+        "clv-sturing-in-google-ads",
+        "CLV-sturing in Google Ads"
+      ],
+      [
+        "google-beperkt-rank-tracking-strategische-zet-tegen-ai",
+        "Google beperkt rank tracking: strategische zet tegen AI"
+      ]
+    ]
+  },
+  {
+    "slug": "scroll-depth-en-engagement-meten-in-ga4",
+    "title": "Scroll depth en engagement meten in GA4",
+    "category": "Analytics",
+    "keywords": [
+      "scroll depth en engagement meten in ga4",
+      "scroll depth",
+      "scroll depth en"
+    ],
+    "status": "scaffolded",
+    "cluster": "analytics-ga4",
+    "duplicateRisk": 0.417,
+    "nearestExisting": "telefonische-leads-meten-in-ga4-en-google-ads",
+    "pipelineScore": 17,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149589,
+    "id": 876972233,
+    "related": [
+      [
+        "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+        "Attributie in GA4: wat kun je nog vertrouwen?"
+      ],
+      [
+        "bigquery-contribution-analysis-voor-campagneveranderingen",
+        "BigQuery contribution analysis voor campagneveranderingen"
+      ],
+      [
+        "bigquery-forecasting-voor-marketingplanning",
+        "BigQuery forecasting voor marketingplanning"
+      ],
+      [
+        "bigquery-koppelen-aan-ga4",
+        "BigQuery koppelen aan GA4"
+      ],
+      [
+        "bigquery-ml-voor-customer-segmentatie",
+        "BigQuery ML voor customer segmentatie"
+      ]
+    ]
+  },
+  {
+    "slug": "custom-dimensions-en-metrics-instellen-in-ga4",
+    "title": "Custom dimensions en metrics instellen in GA4",
+    "category": "Analytics",
+    "keywords": [
+      "custom dimensions en metrics instellen in ga4",
+      "custom dimensions",
+      "custom dimensions en"
+    ],
+    "status": "scaffolded",
+    "cluster": "analytics-ga4",
+    "duplicateRisk": 0.364,
+    "nearestExisting": "ga4-custom-channel-groups",
+    "pipelineScore": 17,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149590,
+    "id": 864207832,
+    "related": [
+      [
+        "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+        "Attributie in GA4: wat kun je nog vertrouwen?"
+      ],
+      [
+        "bigquery-contribution-analysis-voor-campagneveranderingen",
+        "BigQuery contribution analysis voor campagneveranderingen"
+      ],
+      [
+        "bigquery-forecasting-voor-marketingplanning",
+        "BigQuery forecasting voor marketingplanning"
+      ],
+      [
+        "bigquery-koppelen-aan-ga4",
+        "BigQuery koppelen aan GA4"
+      ],
+      [
+        "bigquery-ml-voor-customer-segmentatie",
+        "BigQuery ML voor customer segmentatie"
+      ]
     ]
   },
   {
@@ -96,17 +528,1207 @@
       "conversion api deduplication",
       "meta capi gtm"
     ],
-    "status": "scaffolded",
+    "status": "published",
     "img": "google-analytics-user-retention-cohort-heatmap.jpg",
-    "readCount": 0,
+    "readCount": 327,
     "ts": 1773156782165,
     "id": 853189078,
     "related": [
-      ["cross-domain-tracking", "Cross-domain tracking"],
-      ["e-commerce-tracking-via-gtm", "E-commerce tracking via GTM"],
-      ["enhanced-conversions-via-gtm", "Enhanced Conversions via GTM"],
-      ["google-ads-tracking-via-gtm", "Google Ads tracking via GTM"],
-      ["google-tag-manager-installeren", "Google Tag Manager installeren"]
+      [
+        "cross-domain-tracking",
+        "Cross-domain tracking"
+      ],
+      [
+        "e-commerce-tracking-via-gtm",
+        "E-commerce tracking via GTM"
+      ],
+      [
+        "enhanced-conversions-via-gtm",
+        "Enhanced Conversions via GTM"
+      ],
+      [
+        "google-ads-tracking-via-gtm",
+        "Google Ads tracking via GTM"
+      ],
+      [
+        "google-tag-manager-installeren",
+        "Google Tag Manager installeren"
+      ]
+    ],
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.357,
+    "nearestExisting": "linkedin-insight-tag-via-gtm",
+    "pipelineScore": 16
+  },
+  {
+    "slug": "first-party-tracking-opzetten-voor-betere-datakwaliteit",
+    "title": "First-party tracking opzetten voor betere datakwaliteit",
+    "category": "Digital Marketing",
+    "keywords": [
+      "first-party tracking opzetten voor betere datakwaliteit",
+      "first-party tracking",
+      "first-party tracking opzetten"
+    ],
+    "status": "scaffolded",
+    "cluster": "tracking-infrastructure",
+    "duplicateRisk": 0.308,
+    "nearestExisting": "server-side-tracking-voor-meta-ads",
+    "pipelineScore": 16,
+    "img": "google-analytics-active-users-and-revenue-dashboard.jpg",
+    "ts": 1773751149592,
+    "id": 614829483,
+    "related": [
+      [
+        "bigquery-voor-assortimentsanalyse-in-shopping",
+        "BigQuery voor assortimentsanalyse in Shopping"
+      ],
+      [
+        "bigquery-voor-pricing-in-shopping-campagnes",
+        "BigQuery voor pricing in Shopping campagnes"
+      ],
+      [
+        "clv-sturing-in-google-ads",
+        "CLV-sturing in Google Ads"
+      ],
+      [
+        "google-beperkt-rank-tracking-strategische-zet-tegen-ai",
+        "Google beperkt rank tracking: strategische zet tegen AI"
+      ],
+      [
+        "leadkwaliteit-terugkoppelen-naar-google-ads",
+        "Leadkwaliteit terugkoppelen naar Google Ads"
+      ]
+    ]
+  },
+  {
+    "slug": "404-pagina-s-meten-en-oplossen-met-ga4",
+    "title": "404-pagina's meten en oplossen met GA4",
+    "category": "Analytics",
+    "keywords": [
+      "404-pagina's meten en oplossen met ga4",
+      "404-pagina's meten en oplossen",
+      "404-pagina's meten"
+    ],
+    "status": "scaffolded",
+    "cluster": "analytics-ga4",
+    "duplicateRisk": 0.417,
+    "nearestExisting": "landingspagina-s-analyseren-met-hotjar-en-ga4",
+    "pipelineScore": 16,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149593,
+    "id": 370424178,
+    "related": [
+      [
+        "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+        "Attributie in GA4: wat kun je nog vertrouwen?"
+      ],
+      [
+        "bigquery-contribution-analysis-voor-campagneveranderingen",
+        "BigQuery contribution analysis voor campagneveranderingen"
+      ],
+      [
+        "bigquery-forecasting-voor-marketingplanning",
+        "BigQuery forecasting voor marketingplanning"
+      ],
+      [
+        "bigquery-koppelen-aan-ga4",
+        "BigQuery koppelen aan GA4"
+      ],
+      [
+        "bigquery-ml-voor-customer-segmentatie",
+        "BigQuery ML voor customer segmentatie"
+      ]
+    ]
+  },
+  {
+    "slug": "ga4-custom-channel-groups",
+    "title": "GA4 custom channel groups instellen",
+    "category": "Analytics",
+    "keywords": [
+      "ga4 custom channel groups",
+      "channel groups ga4",
+      "kanaalrapportage"
+    ],
+    "status": "live",
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "readCount": 239,
+    "ts": 1773156782151,
+    "id": 925531057,
+    "related": [
+      [
+        "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+        "Attributie in GA4: wat kun je nog vertrouwen?"
+      ],
+      [
+        "bigquery-contribution-analysis-voor-campagneveranderingen",
+        "BigQuery contribution analysis voor campagneveranderingen"
+      ],
+      [
+        "bigquery-forecasting-voor-marketingplanning",
+        "BigQuery forecasting voor marketingplanning"
+      ],
+      [
+        "bigquery-koppelen-aan-ga4",
+        "BigQuery koppelen aan GA4"
+      ],
+      [
+        "bigquery-ml-voor-customer-segmentatie",
+        "BigQuery ML voor customer segmentatie"
+      ]
+    ],
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.364,
+    "nearestExisting": "custom-dimensions-en-metrics-instellen-in-ga4",
+    "pipelineScore": 15
+  },
+  {
+    "slug": "leadkwaliteit-terugkoppelen-naar-google-ads",
+    "title": "Leadkwaliteit terugkoppelen naar Google Ads",
+    "category": "Digital Marketing",
+    "keywords": [
+      "leadkwaliteit google ads",
+      "offline conversion import",
+      "crm terugkoppeling google ads"
+    ],
+    "status": "published",
+    "img": "google-logo-iphone-desk.jpg",
+    "readCount": 311,
+    "ts": 1773690060000,
+    "id": 684215308,
+    "related": [
+      [
+        "offline-conversies-importeren-in-google-ads",
+        "Offline conversies importeren in Google Ads"
+      ],
+      [
+        "hubspot-integratie-via-gtm",
+        "HubSpot integratie via GTM"
+      ],
+      [
+        "marketingbudget-b2b",
+        "Marketingbudget B2B"
+      ],
+      [
+        "google-ads-tracking-via-gtm",
+        "Google Ads tracking via GTM"
+      ],
+      [
+        "ga4-rapportages-en-dashboards",
+        "GA4 rapportages en dashboards"
+      ]
+    ],
+    "cluster": "tracking-infrastructure",
+    "duplicateRisk": 0.25,
+    "nearestExisting": "server-side-tagging-voor-google-ads",
+    "pipelineScore": 15
+  },
+  {
+    "slug": "clv-sturing-in-google-ads",
+    "title": "CLV-sturing in Google Ads",
+    "category": "Digital Marketing",
+    "keywords": [
+      "clv google ads",
+      "customer lifetime value ads",
+      "value based bidding"
+    ],
+    "status": "published",
+    "img": "google-shopping-ecommerce-icon-3d.jpg",
+    "readCount": 274,
+    "ts": 1773690120000,
+    "id": 684215309,
+    "related": [
+      [
+        "wat-is-een-goede-roas-en-hoe-stuur-je-erop",
+        "Wat is een goede ROAS en hoe stuur je erop"
+      ],
+      [
+        "bigquery-ml-voor-klantwaarde-en-koopkans",
+        "BigQuery ML voor klantwaarde en koopkans"
+      ],
+      [
+        "marketing-budget-bepalen",
+        "Marketing budget bepalen"
+      ],
+      [
+        "bigquery-voor-customer-360-in-marketing",
+        "BigQuery voor customer 360 in marketing"
+      ],
+      [
+        "offline-conversies-importeren-in-google-ads",
+        "Offline conversies importeren in Google Ads"
+      ]
+    ],
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.25,
+    "nearestExisting": "server-side-tagging-voor-google-ads",
+    "pipelineScore": 15
+  },
+  {
+    "slug": "cro-voor-leadgeneratie-de-snelste-optimalisaties",
+    "title": "CRO voor leadgeneratie: de snelste optimalisaties",
+    "category": "Conversion Rate Optimization",
+    "keywords": [
+      "cro voor leadgeneratie de snelste optimalisaties",
+      "cro voor",
+      "cro voor leadgeneratie"
+    ],
+    "status": "scaffolded",
+    "cluster": "cro-leadgen",
+    "duplicateRisk": 0.154,
+    "nearestExisting": "ga4-funnels-bouwen-voor-leadgeneratie",
+    "pipelineScore": 15,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149596,
+    "id": 563450995,
+    "related": []
+  },
+  {
+    "slug": "enhanced-conversions-via-gtm-inrichten",
+    "title": "Enhanced Conversions via GTM Inrichten",
+    "category": "Google Tag Manager",
+    "keywords": [
+      "enhanced conversions",
+      "google ads conversies",
+      "first-party data"
+    ],
+    "status": "approved",
+    "img": "google-logo-iphone-desk.jpg",
+    "readCount": 445,
+    "ts": 1773156367123,
+    "id": 784355639,
+    "related": [
+      [
+        "enhanced-conversions-via-gtm",
+        "Enhanced Conversions via GTM"
+      ],
+      [
+        "google-ads-tracking-via-gtm",
+        "Google Ads tracking via GTM"
+      ],
+      [
+        "google-tag-manager-vs-gtagjs",
+        "Google Tag Manager vs. gtag.js"
+      ],
+      [
+        "gtm-voor-shopify",
+        "GTM voor Shopify"
+      ],
+      [
+        "cross-domain-tracking",
+        "Cross-domain tracking"
+      ]
+    ],
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.538,
+    "nearestExisting": "enhanced-conversions-inrichten-via-google-tag-manager",
+    "pipelineScore": 14
+  },
+  {
+    "slug": "consent-mode-v2-via-gtm",
+    "title": "Consent Mode v2 via GTM instellen",
+    "category": "Google Tag Manager",
+    "keywords": [
+      "consent mode v2",
+      "gtm consent mode",
+      "google consent mode"
+    ],
+    "status": "draft",
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "readCount": 417,
+    "ts": 1773156782158,
+    "id": 501740961,
+    "related": [
+      [
+        "google-consent-mode-v2-verplicht-n-urgent",
+        "Google Consent Mode v2: verplicht én urgent"
+      ],
+      [
+        "cross-domain-tracking",
+        "Cross-domain tracking"
+      ],
+      [
+        "e-commerce-tracking-via-gtm",
+        "E-commerce tracking via GTM"
+      ],
+      [
+        "enhanced-conversions-via-gtm",
+        "Enhanced Conversions via GTM"
+      ],
+      [
+        "google-ads-tracking-via-gtm",
+        "Google Ads tracking via GTM"
+      ]
+    ],
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.545,
+    "nearestExisting": "consent-mode-v2-voor-shopify",
+    "pipelineScore": 14
+  },
+  {
+    "slug": "ga4-utm-structuur-opzetten",
+    "title": "GA4 UTM-structuur opzetten",
+    "category": "Analytics",
+    "keywords": [
+      "utm structuur",
+      "ga4 utm tagging",
+      "campagne tagging"
+    ],
+    "status": "published",
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "readCount": 242,
+    "ts": 1773156782163,
+    "id": 707154724,
+    "related": [
+      [
+        "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+        "Attributie in GA4: wat kun je nog vertrouwen?"
+      ],
+      [
+        "bigquery-contribution-analysis-voor-campagneveranderingen",
+        "BigQuery contribution analysis voor campagneveranderingen"
+      ],
+      [
+        "bigquery-forecasting-voor-marketingplanning",
+        "BigQuery forecasting voor marketingplanning"
+      ],
+      [
+        "bigquery-koppelen-aan-ga4",
+        "BigQuery koppelen aan GA4"
+      ],
+      [
+        "bigquery-ml-voor-customer-segmentatie",
+        "BigQuery ML voor customer segmentatie"
+      ]
+    ],
+    "cluster": "analytics-ga4",
+    "duplicateRisk": 0.4,
+    "nearestExisting": "utm-structuur-opzetten-voor-consistente-campagnemetingen",
+    "pipelineScore": 14
+  },
+  {
+    "slug": "channable-image-editor",
+    "title": "Channable Image Editor",
+    "category": "Channable",
+    "keywords": [
+      "channable image editor",
+      "shopping feed afbeeldingen",
+      "product afbeeldingen optimaliseren"
+    ],
+    "status": "published",
+    "img": "google-shopping-ecommerce-icon-3d.jpg",
+    "readCount": 475,
+    "ts": 1773654600000,
+    "id": 618240573,
+    "related": [
+      [
+        "bigquery-voor-assortimentsanalyse-in-shopping",
+        "BigQuery voor assortimentsanalyse in Shopping"
+      ],
+      [
+        "wat-is-een-goede-roas-en-hoe-stuur-je-erop",
+        "Wat is een goede ROAS en hoe stuur je erop"
+      ],
+      [
+        "marketing-budget-bepalen",
+        "Marketing budget bepalen"
+      ],
+      [
+        "offline-conversies-importeren-in-google-ads",
+        "Offline conversies importeren in Google Ads"
+      ],
+      [
+        "google-ads-tracking-via-gtm",
+        "Google Ads tracking via GTM"
+      ]
+    ],
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.125,
+    "nearestExisting": "channable-image-editor",
+    "pipelineScore": 14
+  },
+  {
+    "slug": "van-roas-naar-poas",
+    "title": "Van ROAS naar POAS",
+    "category": "Digital Marketing",
+    "keywords": [
+      "poas",
+      "roas vs poas",
+      "sturen op brutowinst"
+    ],
+    "status": "published",
+    "img": "google-shopping-ecommerce-icon-3d.jpg",
+    "readCount": 286,
+    "ts": 1773690000000,
+    "id": 684215307,
+    "related": [
+      [
+        "wat-is-een-goede-roas-en-hoe-stuur-je-erop",
+        "Wat is een goede ROAS en hoe stuur je erop"
+      ],
+      [
+        "marketing-budget-bepalen",
+        "Marketing budget bepalen"
+      ],
+      [
+        "bigquery-voor-pricing-in-shopping-campagnes",
+        "BigQuery voor pricing in Shopping campagnes"
+      ],
+      [
+        "bigquery-voor-assortimentsanalyse-in-shopping",
+        "BigQuery voor assortimentsanalyse in Shopping"
+      ],
+      [
+        "offline-conversies-importeren-in-google-ads",
+        "Offline conversies importeren in Google Ads"
+      ]
+    ],
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.158,
+    "nearestExisting": "leadkwaliteit-terugkoppelen-naar-google-ads",
+    "pipelineScore": 14
+  },
+  {
+    "slug": "utm-structuur-opzetten-voor-consistente-campagnemetingen",
+    "title": "UTM-structuur opzetten voor consistente campagnemetingen",
+    "category": "Analytics",
+    "keywords": [
+      "utm-structuur opzetten voor consistente campagnemetingen",
+      "utm-structuur opzetten",
+      "utm-structuur opzetten voor"
+    ],
+    "status": "scaffolded",
+    "cluster": "analytics-ga4",
+    "duplicateRisk": 0.4,
+    "nearestExisting": "ga4-utm-structuur-opzetten",
+    "pipelineScore": 14,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149598,
+    "id": 660084436,
+    "related": [
+      [
+        "ga4-utm-structuur-opzetten",
+        "GA4 UTM-structuur opzetten"
+      ],
+      [
+        "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+        "Attributie in GA4: wat kun je nog vertrouwen?"
+      ],
+      [
+        "bigquery-contribution-analysis-voor-campagneveranderingen",
+        "BigQuery contribution analysis voor campagneveranderingen"
+      ],
+      [
+        "bigquery-forecasting-voor-marketingplanning",
+        "BigQuery forecasting voor marketingplanning"
+      ],
+      [
+        "bigquery-koppelen-aan-ga4",
+        "BigQuery koppelen aan GA4"
+      ]
+    ]
+  },
+  {
+    "slug": "video-tracking-instellen-met-google-tag-manager",
+    "title": "Video tracking instellen met Google Tag Manager",
+    "category": "Google Tag Manager",
+    "keywords": [
+      "video tracking instellen met google tag manager",
+      "video tracking instellen",
+      "video tracking"
+    ],
+    "status": "review",
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.444,
+    "nearestExisting": "klaviyo-tracking-via-google-tag-manager",
+    "pipelineScore": 14,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149600,
+    "id": 759644852,
+    "related": [
+      [
+        "consent-mode-correct-instellen",
+        "Consent Mode correct instellen"
+      ],
+      [
+        "consent-mode-v2-via-gtm",
+        "Consent Mode v2 via GTM instellen"
+      ],
+      [
+        "cross-domain-tracking",
+        "Cross-domain tracking"
+      ],
+      [
+        "data-layer-opzetten",
+        "Data layer opzetten"
+      ],
+      [
+        "e-commerce-tracking-via-gtm",
+        "E-commerce tracking via GTM"
+      ]
+    ]
+  },
+  {
+    "slug": "interne-zoekopdrachten-meten-in-ga4",
+    "title": "Interne zoekopdrachten meten in GA4",
+    "category": "Analytics",
+    "keywords": [
+      "interne zoekopdrachten meten in ga4",
+      "interne zoekopdrachten",
+      "interne zoekopdrachten meten"
+    ],
+    "status": "scaffolded",
+    "cluster": "analytics-ga4",
+    "duplicateRisk": 0.5,
+    "nearestExisting": "calendly-conversies-meten-in-ga4",
+    "pipelineScore": 14,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149602,
+    "id": 392404821,
+    "related": [
+      [
+        "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+        "Attributie in GA4: wat kun je nog vertrouwen?"
+      ],
+      [
+        "bigquery-contribution-analysis-voor-campagneveranderingen",
+        "BigQuery contribution analysis voor campagneveranderingen"
+      ],
+      [
+        "bigquery-forecasting-voor-marketingplanning",
+        "BigQuery forecasting voor marketingplanning"
+      ],
+      [
+        "bigquery-koppelen-aan-ga4",
+        "BigQuery koppelen aan GA4"
+      ],
+      [
+        "bigquery-ml-voor-customer-segmentatie",
+        "BigQuery ML voor customer segmentatie"
+      ]
+    ]
+  },
+  {
+    "slug": "klaviyo-tracking-via-google-tag-manager",
+    "title": "Klaviyo tracking via Google Tag Manager",
+    "category": "Google Tag Manager",
+    "keywords": [
+      "klaviyo tracking via google tag manager",
+      "klaviyo tracking",
+      "klaviyo tracking via"
+    ],
+    "status": "review",
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.444,
+    "nearestExisting": "video-tracking-instellen-met-google-tag-manager",
+    "pipelineScore": 14,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149603,
+    "id": 175249265,
+    "related": [
+      [
+        "consent-mode-correct-instellen",
+        "Consent Mode correct instellen"
+      ],
+      [
+        "consent-mode-v2-via-gtm",
+        "Consent Mode v2 via GTM instellen"
+      ],
+      [
+        "cross-domain-tracking",
+        "Cross-domain tracking"
+      ],
+      [
+        "data-layer-opzetten",
+        "Data layer opzetten"
+      ],
+      [
+        "e-commerce-tracking-via-gtm",
+        "E-commerce tracking via GTM"
+      ]
+    ]
+  },
+  {
+    "slug": "calendly-conversies-meten-in-ga4",
+    "title": "Calendly conversies meten in GA4",
+    "category": "Analytics",
+    "keywords": [
+      "calendly conversies meten in ga4",
+      "calendly conversies",
+      "calendly conversies meten"
+    ],
+    "status": "scaffolded",
+    "cluster": "analytics-ga4",
+    "duplicateRisk": 0.5,
+    "nearestExisting": "interne-zoekopdrachten-meten-in-ga4",
+    "pipelineScore": 14,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149605,
+    "id": 870120638,
+    "related": [
+      [
+        "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+        "Attributie in GA4: wat kun je nog vertrouwen?"
+      ],
+      [
+        "bigquery-contribution-analysis-voor-campagneveranderingen",
+        "BigQuery contribution analysis voor campagneveranderingen"
+      ],
+      [
+        "bigquery-forecasting-voor-marketingplanning",
+        "BigQuery forecasting voor marketingplanning"
+      ],
+      [
+        "bigquery-koppelen-aan-ga4",
+        "BigQuery koppelen aan GA4"
+      ],
+      [
+        "bigquery-ml-voor-customer-segmentatie",
+        "BigQuery ML voor customer segmentatie"
+      ]
+    ]
+  },
+  {
+    "slug": "hubspot-formulieren-meten-in-ga4",
+    "title": "HubSpot formulieren meten in GA4",
+    "category": "Analytics",
+    "keywords": [
+      "hubspot formulieren meten in ga4",
+      "hubspot formulieren",
+      "hubspot formulieren meten"
+    ],
+    "status": "scaffolded",
+    "cluster": "analytics-ga4",
+    "duplicateRisk": 0.5,
+    "nearestExisting": "interne-zoekopdrachten-meten-in-ga4",
+    "pipelineScore": 14,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149606,
+    "id": 418485668,
+    "related": [
+      [
+        "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+        "Attributie in GA4: wat kun je nog vertrouwen?"
+      ],
+      [
+        "bigquery-contribution-analysis-voor-campagneveranderingen",
+        "BigQuery contribution analysis voor campagneveranderingen"
+      ],
+      [
+        "bigquery-forecasting-voor-marketingplanning",
+        "BigQuery forecasting voor marketingplanning"
+      ],
+      [
+        "bigquery-koppelen-aan-ga4",
+        "BigQuery koppelen aan GA4"
+      ],
+      [
+        "bigquery-ml-voor-customer-segmentatie",
+        "BigQuery ML voor customer segmentatie"
+      ]
+    ]
+  },
+  {
+    "slug": "server-side-tagging-voor-google-ads",
+    "title": "Server-side tagging voor Google Ads",
+    "category": "Digital Marketing",
+    "keywords": [
+      "server-side tagging voor google ads",
+      "server-side tagging",
+      "server-side tagging voor"
+    ],
+    "status": "live",
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.6,
+    "nearestExisting": "server-side-tracking-voor-meta-ads",
+    "pipelineScore": 14,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149607,
+    "id": 587001936,
+    "related": [
+      [
+        "clv-sturing-in-google-ads",
+        "CLV-sturing in Google Ads"
+      ],
+      [
+        "leadkwaliteit-terugkoppelen-naar-google-ads",
+        "Leadkwaliteit terugkoppelen naar Google Ads"
+      ],
+      [
+        "google-tag-manager-vs-gtagjs",
+        "Google Tag Manager vs. gtag.js"
+      ],
+      [
+        "bigquery-voor-assortimentsanalyse-in-shopping",
+        "BigQuery voor assortimentsanalyse in Shopping"
+      ],
+      [
+        "bigquery-voor-pricing-in-shopping-campagnes",
+        "BigQuery voor pricing in Shopping campagnes"
+      ]
+    ]
+  },
+  {
+    "slug": "cookiebot-koppelen-aan-google-tag-manager",
+    "title": "Cookiebot koppelen aan Google Tag Manager",
+    "category": "Google Tag Manager",
+    "keywords": [
+      "cookiebot koppelen aan google tag manager",
+      "cookiebot koppelen",
+      "cookiebot koppelen aan"
+    ],
+    "status": "scaffolded",
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.333,
+    "nearestExisting": "klaviyo-tracking-via-google-tag-manager",
+    "pipelineScore": 13,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149608,
+    "id": 646646567,
+    "related": [
+      [
+        "consent-mode-correct-instellen",
+        "Consent Mode correct instellen"
+      ],
+      [
+        "consent-mode-v2-via-gtm",
+        "Consent Mode v2 via GTM instellen"
+      ],
+      [
+        "cross-domain-tracking",
+        "Cross-domain tracking"
+      ],
+      [
+        "data-layer-opzetten",
+        "Data layer opzetten"
+      ],
+      [
+        "e-commerce-tracking-via-gtm",
+        "E-commerce tracking via GTM"
+      ]
+    ]
+  },
+  {
+    "slug": "server-side-tracking-voor-meta-ads",
+    "title": "Server-side tracking voor Meta Ads",
+    "category": "Digital Marketing",
+    "keywords": [
+      "server-side tracking voor meta ads",
+      "server-side tracking",
+      "server-side tracking voor"
+    ],
+    "status": "scaffolded",
+    "cluster": "tracking-infrastructure",
+    "duplicateRisk": 0.6,
+    "nearestExisting": "server-side-tagging-voor-google-ads",
+    "pipelineScore": 13,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149609,
+    "id": 563329245,
+    "related": [
+      [
+        "bigquery-voor-assortimentsanalyse-in-shopping",
+        "BigQuery voor assortimentsanalyse in Shopping"
+      ],
+      [
+        "bigquery-voor-pricing-in-shopping-campagnes",
+        "BigQuery voor pricing in Shopping campagnes"
+      ],
+      [
+        "clv-sturing-in-google-ads",
+        "CLV-sturing in Google Ads"
+      ],
+      [
+        "google-beperkt-rank-tracking-strategische-zet-tegen-ai",
+        "Google beperkt rank tracking: strategische zet tegen AI"
+      ],
+      [
+        "leadkwaliteit-terugkoppelen-naar-google-ads",
+        "Leadkwaliteit terugkoppelen naar Google Ads"
+      ]
+    ]
+  },
+  {
+    "slug": "wat-is-een-goede-roas-en-hoe-stuur-je-erop",
+    "title": "Wat is een goede ROAS en hoe stuur je erop",
+    "category": "Digital Marketing",
+    "keywords": [
+      "wat is een goede roas en hoe stuur je erop",
+      "wat is",
+      "wat is een"
+    ],
+    "status": "scaffolded",
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.333,
+    "nearestExisting": "wat-is-een-goede-roas-en-hoe-stuur-je-erop",
+    "pipelineScore": 13,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149611,
+    "id": 133160693,
+    "related": [
+      [
+        "bigquery-voor-assortimentsanalyse-in-shopping",
+        "BigQuery voor assortimentsanalyse in Shopping"
+      ],
+      [
+        "bigquery-voor-pricing-in-shopping-campagnes",
+        "BigQuery voor pricing in Shopping campagnes"
+      ],
+      [
+        "clv-sturing-in-google-ads",
+        "CLV-sturing in Google Ads"
+      ],
+      [
+        "google-beperkt-rank-tracking-strategische-zet-tegen-ai",
+        "Google beperkt rank tracking: strategische zet tegen AI"
+      ],
+      [
+        "leadkwaliteit-terugkoppelen-naar-google-ads",
+        "Leadkwaliteit terugkoppelen naar Google Ads"
+      ]
+    ]
+  },
+  {
+    "slug": "linkedin-insight-tag-via-gtm",
+    "title": "LinkedIn Insight Tag via GTM",
+    "category": "Google Tag Manager",
+    "keywords": [
+      "linkedin insight tag via gtm",
+      "linkedin insight tag",
+      "linkedin insight"
+    ],
+    "status": "scaffolded",
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.556,
+    "nearestExisting": "pinterest-tag-implementeren-via-gtm",
+    "pipelineScore": 12,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149612,
+    "id": 205630066,
+    "related": [
+      [
+        "consent-mode-v2-via-gtm",
+        "Consent Mode v2 via GTM instellen"
+      ],
+      [
+        "cross-domain-tracking",
+        "Cross-domain tracking"
+      ],
+      [
+        "e-commerce-tracking-via-gtm",
+        "E-commerce tracking via GTM"
+      ],
+      [
+        "enhanced-conversions-via-gtm",
+        "Enhanced Conversions via GTM"
+      ],
+      [
+        "enhanced-conversions-via-gtm-inrichten",
+        "Enhanced Conversions via GTM Inrichten"
+      ]
+    ]
+  },
+  {
+    "slug": "pinterest-tag-implementeren-via-gtm",
+    "title": "Pinterest Tag implementeren via GTM",
+    "category": "Google Tag Manager",
+    "keywords": [
+      "pinterest tag implementeren via gtm",
+      "pinterest tag implementeren",
+      "pinterest tag"
+    ],
+    "status": "scaffolded",
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.556,
+    "nearestExisting": "linkedin-insight-tag-via-gtm",
+    "pipelineScore": 12,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149612,
+    "id": 148404871,
+    "related": [
+      [
+        "pinterest-tag-via-gtm",
+        "Pinterest Tag via GTM"
+      ],
+      [
+        "consent-mode-v2-via-gtm",
+        "Consent Mode v2 via GTM instellen"
+      ],
+      [
+        "cross-domain-tracking",
+        "Cross-domain tracking"
+      ],
+      [
+        "e-commerce-tracking-via-gtm",
+        "E-commerce tracking via GTM"
+      ],
+      [
+        "enhanced-conversions-via-gtm",
+        "Enhanced Conversions via GTM"
+      ]
+    ]
+  },
+  {
+    "slug": "landingspagina-s-analyseren-met-hotjar-en-ga4",
+    "title": "Landingspagina's analyseren met Hotjar en GA4",
+    "category": "Analytics",
+    "keywords": [
+      "landingspagina's analyseren met hotjar en ga4",
+      "landingspagina's analyseren",
+      "landingspagina's analyseren met"
+    ],
+    "status": "scaffolded",
+    "cluster": "cro-leadgen",
+    "duplicateRisk": 0.417,
+    "nearestExisting": "404-pagina-s-meten-en-oplossen-met-ga4",
+    "pipelineScore": 12,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149614,
+    "id": 366659356,
+    "related": [
+      [
+        "attributie-in-ga4-wat-kun-je-nog-vertrouwen",
+        "Attributie in GA4: wat kun je nog vertrouwen?"
+      ],
+      [
+        "bigquery-contribution-analysis-voor-campagneveranderingen",
+        "BigQuery contribution analysis voor campagneveranderingen"
+      ],
+      [
+        "bigquery-forecasting-voor-marketingplanning",
+        "BigQuery forecasting voor marketingplanning"
+      ],
+      [
+        "bigquery-koppelen-aan-ga4",
+        "BigQuery koppelen aan GA4"
+      ],
+      [
+        "bigquery-ml-voor-customer-segmentatie",
+        "BigQuery ML voor customer segmentatie"
+      ]
+    ]
+  },
+  {
+    "slug": "seo-en-ai-overviews-wat-betekent-dit-voor-verkeer-en-conversie",
+    "title": "SEO en AI Overviews: wat betekent dit voor verkeer en conversie",
+    "category": "SEO",
+    "keywords": [
+      "seo en ai overviews wat betekent dit voor verkeer en conversie",
+      "seo en",
+      "seo en ai"
+    ],
+    "status": "scaffolded",
+    "cluster": "seo-ai",
+    "duplicateRisk": 0.129,
+    "nearestExisting": "bigquery-forecasting-voor-marketingplanning",
+    "pipelineScore": 12,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149615,
+    "id": 447940138,
+    "related": [
+      [
+        "google-straft-ai-content-harder-dan-je-denkt",
+        "Google straft AI-content harder dan je denkt"
+      ]
+    ]
+  },
+  {
+    "slug": "tiktok-pixel-installeren-via-gtm",
+    "title": "TikTok Pixel installeren via GTM",
+    "category": "Google Tag Manager",
+    "keywords": [
+      "tiktok pixel installeren via gtm",
+      "tiktok pixel installeren",
+      "tiktok pixel"
+    ],
+    "status": "scaffolded",
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.667,
+    "nearestExisting": "meta-pixel-installeren-via-google-tag-manager",
+    "pipelineScore": 10,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149617,
+    "id": 353496687,
+    "related": [
+      [
+        "tiktok-pixel-via-gtm",
+        "TikTok Pixel via GTM"
+      ],
+      [
+        "consent-mode-v2-via-gtm",
+        "Consent Mode v2 via GTM instellen"
+      ],
+      [
+        "cross-domain-tracking",
+        "Cross-domain tracking"
+      ],
+      [
+        "e-commerce-tracking-via-gtm",
+        "E-commerce tracking via GTM"
+      ],
+      [
+        "enhanced-conversions-via-gtm",
+        "Enhanced Conversions via GTM"
+      ]
+    ]
+  },
+  {
+    "slug": "enhanced-conversions-inrichten-via-google-tag-manager",
+    "title": "Enhanced Conversions inrichten via Google Tag Manager",
+    "category": "Google Tag Manager",
+    "keywords": [
+      "enhanced conversions inrichten via google tag manager",
+      "enhanced conversions inrichten",
+      "enhanced conversions"
+    ],
+    "status": "scaffolded",
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.538,
+    "nearestExisting": "enhanced-conversions-via-gtm-inrichten",
+    "pipelineScore": 9,
+    "img": "google-search-analytics-mobile.jpg",
+    "ts": 1773751149619,
+    "id": 463935669,
+    "related": [
+      [
+        "enhanced-conversions-via-gtm",
+        "Enhanced Conversions via GTM"
+      ],
+      [
+        "enhanced-conversions-via-gtm-inrichten",
+        "Enhanced Conversions via GTM Inrichten"
+      ],
+      [
+        "google-ads-tracking-via-gtm",
+        "Google Ads tracking via GTM"
+      ],
+      [
+        "google-consent-mode-v2-verplicht-n-urgent",
+        "Google Consent Mode v2: verplicht én urgent"
+      ],
+      [
+        "google-tag-manager-vs-gtagjs",
+        "Google Tag Manager vs. gtag.js"
+      ]
+    ]
+  },
+  {
+    "slug": "meta-pixel-installeren-via-google-tag-manager",
+    "title": "Meta Pixel installeren via Google Tag Manager",
+    "category": "Google Tag Manager",
+    "keywords": [
+      "meta pixel installeren via google tag manager",
+      "meta pixel installeren",
+      "meta pixel"
+    ],
+    "status": "scaffolded",
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.667,
+    "nearestExisting": "tiktok-pixel-installeren-via-gtm",
+    "pipelineScore": 7,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149620,
+    "id": 174393773,
+    "related": [
+      [
+        "consent-mode-correct-instellen",
+        "Consent Mode correct instellen"
+      ],
+      [
+        "consent-mode-v2-via-gtm",
+        "Consent Mode v2 via GTM instellen"
+      ],
+      [
+        "cross-domain-tracking",
+        "Cross-domain tracking"
+      ],
+      [
+        "data-layer-opzetten",
+        "Data layer opzetten"
+      ],
+      [
+        "e-commerce-tracking-via-gtm",
+        "E-commerce tracking via GTM"
+      ]
+    ]
+  },
+  {
+    "slug": "consent-mode-v2-voor-shopify",
+    "title": "Consent Mode v2 voor Shopify",
+    "category": "Google Tag Manager",
+    "keywords": [
+      "consent mode v2 voor shopify",
+      "consent mode",
+      "consent mode v2"
+    ],
+    "status": "scaffolded",
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.778,
+    "nearestExisting": "consent-mode-v2-voor-wordpress",
+    "pipelineScore": 7,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149622,
+    "id": 483906306,
+    "related": [
+      [
+        "consent-mode-v2-via-gtm",
+        "Consent Mode v2 via GTM instellen"
+      ],
+      [
+        "google-consent-mode-v2-verplicht-n-urgent",
+        "Google Consent Mode v2: verplicht én urgent"
+      ],
+      [
+        "consent-mode-correct-instellen",
+        "Consent Mode correct instellen"
+      ],
+      [
+        "tag-manager-usercentrics",
+        "Tag Manager Usercentrics"
+      ],
+      [
+        "cross-domain-tracking",
+        "Cross-domain tracking"
+      ]
+    ]
+  },
+  {
+    "slug": "consent-mode-v2-voor-wordpress",
+    "title": "Consent Mode v2 voor WordPress",
+    "category": "Google Tag Manager",
+    "keywords": [
+      "consent mode v2 voor wordpress",
+      "consent mode",
+      "consent mode v2"
+    ],
+    "status": "scaffolded",
+    "cluster": "google-tag-manager",
+    "duplicateRisk": 0.778,
+    "nearestExisting": "consent-mode-v2-voor-shopify",
+    "pipelineScore": 7,
+    "img": "google-analytics-user-retention-cohort-heatmap.jpg",
+    "ts": 1773751149623,
+    "id": 695967297,
+    "related": [
+      [
+        "consent-mode-v2-via-gtm",
+        "Consent Mode v2 via GTM instellen"
+      ],
+      [
+        "google-consent-mode-v2-verplicht-n-urgent",
+        "Google Consent Mode v2: verplicht én urgent"
+      ],
+      [
+        "consent-mode-correct-instellen",
+        "Consent Mode correct instellen"
+      ],
+      [
+        "tag-manager-usercentrics",
+        "Tag Manager Usercentrics"
+      ],
+      [
+        "cross-domain-tracking",
+        "Cross-domain tracking"
+      ]
     ]
   }
 ]

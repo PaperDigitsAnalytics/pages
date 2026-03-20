@@ -12,7 +12,7 @@ headline3: Minder schijnzekerheid
 category: Analytics
 author: Wouter Naber
 date: 10 maart 2026
-readCount: 0
+readCount: 331
 heroImage: images/Hetportretbureau_LR__T1A1116.jpg
 heroImageAlt: Attributie in GA4 en betrouwbaarheid van kanaalrapportage
 ---

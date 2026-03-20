@@ -18,15 +18,25 @@
     "content:publish": "node _publish-articles.js --slug",
     "sync": "node sync-ftp.js",
     "deploy": "npm run export && npm run sync",
-    "sync:verbose": "node sync-ftp.js --verbose"
+    "sync:verbose": "node sync-ftp.js --verbose",
+    "nightly:run": "node scripts/nightly-content-pipeline.js",
+    "nightly:install-task": "node scripts/install-nightly-content-task.js",
+    "topics:auto": "node scripts/auto-topic-generator.js",
+    "topics:score": "node scripts/topic-selection.js",
+    "topics:dedupe": "node scripts/cleanup-duplicate-topics.js",
+    "quality:check": "node scripts/quality-gate.js",
+    "gemini:test": "node scripts/test-gemini-run.js",
+    "draft:autofix": "node scripts/autofix-draft.js"
   },
   "dependencies": {
+    "@google-cloud/bigquery": "^8.1.1",
+    "@modelcontextprotocol/sdk": "^1.27.1",
     "basic-ftp": "^5.2.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "google-auth-library": "^10.6.1",
     "multer": "^2.0.2",
-    "sharp": "^0.34.3"
+    "sharp": "^0.34.5"
   },
   "keywords": [
     "blog",

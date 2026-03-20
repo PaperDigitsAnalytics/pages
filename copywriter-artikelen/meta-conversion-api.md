@@ -12,7 +12,7 @@ headline3: Minder missende events
 category: Analytics
 author: Wouter Naber
 date: 10 maart 2026
-readCount: 0
+readCount: 421
 heroImage: images/Hetportretbureau_LR__T1A1116.jpg
 heroImageAlt: Meta Conversion API en server-side tracking
 ---

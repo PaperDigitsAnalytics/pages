@@ -1,0 +1,24 @@
+{
+  "enabled": true,
+  "provider": "gemini",
+  "fallbackProvider": "claude",
+  "selfHealRetries": 1,
+  "selfHealTimeoutMs": 180000,
+  "maxArticlesPerRun": 1,
+  "autoDeploy": true,
+  "runLighthouseInsight": false,
+  "minQueuedTopics": 5,
+  "maxDuplicateRisk": 0.72,
+  "hardDuplicateRisk": 0.75,
+  "preferCluster": "google-tag-manager",
+  "scheduledTime": "02:30",
+  "timezone": "Europe/Amsterdam",
+  "topicSelection": {
+    "allowedStatuses": ["idea", "scaffolded"],
+    "preferOldest": true
+  },
+  "paths": {
+    "stylePack": "prompts/nightly-article-style-pack.md",
+    "logDir": "logs/nightly-content"
+  }
+}

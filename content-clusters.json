@@ -1,0 +1,32 @@
+{
+  "google-tag-manager": {
+    "label": "Google Tag Manager",
+    "priority": 10,
+    "patterns": ["gtm", "google tag manager", "pixel", "tag", "consent mode", "cookiebot"]
+  },
+  "analytics-ga4": {
+    "label": "Analytics / GA4",
+    "priority": 9,
+    "patterns": ["ga4", "google analytics", "utm", "dashboard", "looker studio", "attributie"]
+  },
+  "tracking-infrastructure": {
+    "label": "Tracking infrastructuur",
+    "priority": 8,
+    "patterns": ["server-side", "first-party", "conversion api", "offline convers", "telefonische leads"]
+  },
+  "bigquery": {
+    "label": "BigQuery",
+    "priority": 7,
+    "patterns": ["bigquery"]
+  },
+  "cro-leadgen": {
+    "label": "CRO / leadgen",
+    "priority": 6,
+    "patterns": ["cro", "landingspagina", "hotjar", "leadgeneratie"]
+  },
+  "seo-ai": {
+    "label": "SEO / AI",
+    "priority": 5,
+    "patterns": ["seo", "ai overviews", "ai"]
+  }
+}
