@@ -27,11 +27,7 @@ jobs:
       - name: 🏗️ Build static site
         run: npm run export
         env:
-          # Als je voor de build bepaalde env vars nodig hebt (bijv. voor BigQuery access),
-          # moeten die hier worden toegevoegd via secrets.
-          BQ_PROJECT_ID: ${{ secrets.BQ_PROJECT_ID }}
-          BQ_CLIENT_EMAIL: ${{ secrets.BQ_CLIENT_EMAIL }}
-          BQ_PRIVATE_KEY: ${{ secrets.BQ_PRIVATE_KEY }}
+          BIGQUERY_CREDENTIALS: ${{ secrets.BIGQUERY_SECRET }}
 
       - name: 🚀 Sync to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
