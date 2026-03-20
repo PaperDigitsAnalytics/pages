@@ -1,0 +1,45 @@
+name: Deploy to FTP
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 🏗️ Build static site
+        run: npm run export
+        env:
+          # Als je voor de build bepaalde env vars nodig hebt (bijv. voor BigQuery access),
+          # moeten die hier worden toegevoegd via secrets.
+          BQ_PROJECT_ID: ${{ secrets.BQ_PROJECT_ID }}
+          BQ_CLIENT_EMAIL: ${{ secrets.BQ_CLIENT_EMAIL }}
+          BQ_PRIVATE_KEY: ${{ secrets.BQ_PRIVATE_KEY }}
+
+      - name: 🚀 Sync to FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./static-export/
+          server-dir: /
+          protocol: ftp
+          port: 21
