@@ -692,8 +692,8 @@ ${CONSENT_MODE_BOOTSTRAP}
                             </li>
                         </ul>
                         <p class="footer__copyright xsmall-body">
-                            Copyright ©2025 PaperDigits
-                        </p>
+                              Copyright &copy; 2026 PaperDigits (Deployment Flow Test: Gemini)
+                          </p>
                     </div>
                 </div>
             </div>
@@ -1182,8 +1182,8 @@ ${CONSENT_MODE_BOOTSTRAP}
                             </li>
                         </ul>
                         <p class="footer__copyright xsmall-body">
-                            Copyright ©2025 PaperDigits
-                        </p>
+                              Copyright &copy; 2026 PaperDigits (Deployment Flow Test: Gemini)
+                          </p>
                     </div>
                 </div>
                 <div class="footer__bottom-right background--plightgrey">
